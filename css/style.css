@@ -5973,13 +5973,14 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 @media (max-width: 768px) {
     .hero {
         min-height: auto !important;
-        padding: 16px 0 24px !important;
-        background: linear-gradient(180deg, #6d28d9 0%, #7c3aed 6%, #8b5cf6 12%, rgba(139, 92, 246, 0.7) 18%, rgba(139, 92, 246, 0.4) 24%, rgba(167, 139, 250, 0.2) 30%, rgba(196, 181, 253, 0.08) 36%, #f8fafc 42%, #f8fafc 100%) !important;
+        padding: 14px 0 18px !important;
+        background: linear-gradient(180deg, #6d28d9 0%, #7c3aed 8%, #8b5cf6 14%, rgba(139, 92, 246, 0.6) 20%, rgba(139, 92, 246, 0.3) 26%, rgba(167, 139, 250, 0.12) 32%, rgba(196, 181, 253, 0.04) 38%, #f8fafc 44%, #f8fafc 100%) !important;
         overflow: hidden !important;
         align-items: flex-start !important;
     }
     .hero .container {
         align-self: flex-start !important;
+        padding-top: 0 !important;
     }
     .hero-noise,
     .hero-decoration,
@@ -6012,6 +6013,21 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
         padding: 7px 16px !important;
         font-size: 0.78rem !important;
     }
+    
+    /* 手机端section缩小间距 */
+    .section {
+        padding: 40px 0 !important;
+    }
+    .section:first-of-type {
+        padding-top: 24px !important;
+    }
+    .section-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .section-header {
+        margin-bottom: 24px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -6035,5 +6051,18 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     .hero-buttons .btn {
         padding: 6px 14px !important;
         font-size: 0.75rem !important;
+    }
+    
+    .section {
+        padding: 32px 0 !important;
+    }
+    .section:first-of-type {
+        padding-top: 16px !important;
+    }
+    .section-title {
+        font-size: 1.15rem !important;
+    }
+    .section-header {
+        margin-bottom: 18px !important;
     }
 }
