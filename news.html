@@ -1,0 +1,564 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻资讯 - 韩中经贸交流中心 | 뉴스 - 한중경제무역교류센터</title>
+    <meta name="description" content="韩中经贸交流中心新闻资讯，汇聚韩中经贸合作最新动态、政策解读、合作签约等信息。한중경제무역교류센터 뉴스, 한중 경제협력 최신 동향과 정책해석을 제공합니다.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部信息栏 -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span>📍 서울특별시 중구 명동 / 首尔特别市中区明洞</span>
+                <span>📞 +82 2-1234-5678</span>
+            </div>
+            <div class="top-bar-right">
+                <div class="lang-switch">
+                    <a href="#" class="active">中文</a>
+                    <a href="#">한국어</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrap">
+                <div class="logo-icon"><span class="logo-kctec">KCTEC</span></div>
+                <div class="logo-text">
+                    <h1>韩中经贸交流中心</h1>
+                    <p><span class="logo-kr">한중경제무역교류센터</span>KCTEC</p>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页<small>홈</small></a></li>
+                <li>
+                    <a href="about.html">关于协会<small>협회소개 / About</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html#advantages">核心优势 / 핵심우세</a></li>
+                        <li><a href="about.html#history">发展历程 / 발전역사</a></li>
+                        <li><a href="about.html#organization">组织架构 / 조직구조</a></li>
+                        <li><a href="about.html#partners">协作机构 / 협력기관</a></li>
+                        <li><a href="about.html#leadership">领导团队 / 리더십팀</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="member.html">会员服务<small>회원서비스 / Membership</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member.html#benefits">会员权益 / 회원혜택</a></li>
+                        <li><a href="member.html#tiers">会员等级 / 회원등급</a></li>
+                        <li><a href="member.html#join">入会流程 / 가입절차</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news.html" class="active">新闻资讯<small>뉴스 / News</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#policy">政策动态 / 정책동향</a></li>
+                        <li><a href="#cooperation">合作签约 / 협력체결</a></li>
+                        <li><a href="#data">经贸数据 / 경제무역데이터</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events.html">经贸活动<small>경제활동 / Events</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html#upcoming">近期活动 / 예정활동</a></li>
+                        <li><a href="events.html#past">活动回顾 / 활동회고</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">联系我们<small>연락처 / Contact</small></a></li>
+            </ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button><button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 页面Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">首页 / 홈</a>
+                <span class="separator">/</span>
+                <span>新闻资讯 / 뉴스</span>
+            </div>
+            <h1>新闻资讯 / 뉴스</h1>
+            <p>汇聚韩中经贸合作最新动态<br>한중 경제협력 최신 동향을 한눈에</p>
+        </div>
+    </section>
+
+    <!-- 新闻列表 -->
+    <section class="section" id="newsListSection">
+        <div class="container">
+            <!-- 筛选标签 -->
+            <div class="news-filter">
+                <button class="news-filter-btn active" data-filter="all">全部 / 전체</button>
+                <button class="news-filter-btn" data-filter="policy">政策动态 / 정책동향</button>
+                <button class="news-filter-btn" data-filter="cooperation">合作签约 / 협력체결</button>
+                <button class="news-filter-btn" data-filter="data">经贸数据 / 경제무역데이터</button>
+                <button class="news-filter-btn" data-filter="expo">展会活动 / 전시활동</button>
+            </div>
+
+            <!-- 新闻卡片网格 -->
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻1 -->
+                <div class="news-card" data-category="cooperation" onclick="showNewsDetail(0)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        🤝
+                        <span class="news-card-tag">合作签约</span>
+                        <span class="news-card-source">来源：人民网</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-20</div>
+                        <h3>中韩新能源汽车产业链合作项目签约 总投资超20亿美元<br>한중 신에너지 자동차 산업사슬 협력 프로젝트 체결</h3>
+                        <p class="news-card-excerpt">韩国三大动力电池企业与中国新能源汽车产业园正式签署合作协议，将在新能源汽车核心零部件领域展开深度合作...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 人民网 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新闻2 -->
+                <div class="news-card" data-category="policy" onclick="showNewsDetail(1)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        📋
+                        <span class="news-card-tag">政策动态</span>
+                        <span class="news-card-source">来源：商务部</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-18</div>
+                        <h3>中韩自贸协定第二阶段谈判取得新进展 关税减让幅度扩大<br>한중 FTA 2단계 협상 새로운 진전, 관세인하 폭 확대</h3>
+                        <p class="news-card-excerpt">中韩自贸协定第二阶段谈判第12轮会议在首尔举行，双方就服务贸易、投资等领域达成多项共识，关税减让范围进一步扩大...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 商务部 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新闻3 -->
+                <div class="news-card" data-category="data" onclick="showNewsDetail(2)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        📊
+                        <span class="news-card-tag">经贸数据</span>
+                        <span class="news-card-source">来源：海关总署</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-15</div>
+                        <h3>2026年上半年中韩贸易额达1800亿美元 同比增长8.5%<br>2026년 상반기 한중 무역액 1800억 달러, 전년동기대비 8.5% 증가</h3>
+                        <p class="news-card-excerpt">据中国海关总署最新数据，2026年上半年中韩双边贸易额达1800亿美元，同比增长8.5%，中国继续保持韩国第一大贸易伙伴地位...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 海关总署 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新闻4 -->
+                <div class="news-card" data-category="cooperation" onclick="showNewsDetail(3)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        🏭
+                        <span class="news-card-tag">合作签约</span>
+                        <span class="news-card-source">来源：韩联社</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-12</div>
+                        <h3>韩国SK集团与中国某科技公司签署半导体材料合作协议<br>한국 SK그룹, 중국 과학기술기업과 반도체 소재 협력 체결</h3>
+                        <p class="news-card-excerpt">韩国SK集团旗下SK材料与中国某半导体科技公司在首尔签署战略合作协议，双方将在半导体高端材料领域开展联合研发和生产合作...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 韩联联社 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新闻5 -->
+                <div class="news-card" data-category="expo" onclick="showNewsDetail(4)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        🏪
+                        <span class="news-card-tag">展会活动</span>
+                        <span class="news-card-source">来源：中国贸促会</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-10</div>
+                        <h3>2026韩中消费精品博览会9月北京举办 200+韩企确认参展<br>2026 한중소비품엑스포 9월 북경 개최, 200여 개 한국기업 참가확정</h3>
+                        <p class="news-card-excerpt">由韩中经贸交流中心协办的2026韩中消费精品博览会将于9月在北京国家会议中心举办，目前已有超过200家韩国企业确认参展...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 中国贸促会 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 新闻6 -->
+                <div class="news-card" data-category="policy" onclick="showNewsDetail(5)">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">
+                        🏛️
+                        <span class="news-card-tag">政策动态</span>
+                        <span class="news-card-source">来源：韩国产业部</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-05</div>
+                        <h3>韩国发布中国市场进入支援新政 加大对中小企支持力度<br>한국, 중국시장 진출 지원新政 발표... 중소기업 지원 강화</h3>
+                        <p class="news-card-excerpt">韩国产业通商资源部发布《中国市场进入支援综合方案》，将在市场调研、法律咨询、品牌推广等方面加大对韩国中小企业的支持力度...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 韩国产业部 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻详情（默认隐藏） -->
+    <section class="section" id="newsDetailSection" style="display: none;">
+        <div class="container">
+            <button class="news-back-btn" onclick="hideNewsDetail()">← 返回列表 / 목록으로</button>
+            <article class="news-detail" id="newsDetailContent">
+                <!-- 内容由JS动态填充 -->
+            </article>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>加入我们，掌握第一手经贸资讯</h2>
+            <p>
+                회원 전용 뉴스레터와 정책 브리핑으로 최신 정보를 가장 먼저 받아보세요.<br>
+                会员专享资讯简报和政策解读，第一时间掌握最新动态
+            </p>
+            <a href="member.html" class="btn btn-primary">了解会员权益 / 회원혜택 알아보기 →</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>韩中经贸交流中心</h3>
+                    <p>
+                        한중경제무역교류센터<br>
+                        KCTEC · Korea-China Trade & Economic Center<br><br>
+                        部委级资源 · 国家级项目 · 虚拟办公 · 高效服务<br>
+                        부처급 자원 · 국가급 프로젝트 · 가상오피스 · 고효율 서비스
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" title="微信 / 위쳇">💬</a>
+                        <a href="#" title="KakaoTalk / 카카오톡">💛</a>
+                        <a href="#" title="LinkedIn">💼</a>
+                        <a href="#" title="YouTube">📺</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航 / 바로가기</h4>
+                    <ul>
+                        <li><a href="index.html">首页 / 홈</a></li>
+                        <li><a href="about.html">关于协会 / 협회소개</a></li>
+                        <li><a href="member.html">会员服务 / 회원서비스</a></li>
+                        <li><a href="news.html">新闻资讯 / 뉴스</a></li>
+                        <li><a href="events.html">经贸活动 / 경제활동</a></li>
+                        <li><a href="contact.html">联系我们 / 연락처</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>服务项目 / 서비스</h4>
+                    <ul>
+                        <li><a href="member.html">经贸对接 / 무역연계</a></li>
+                        <li><a href="member.html">政策咨询 / 정책자문</a></li>
+                        <li><a href="member.html">展会服务 / 전시서비스</a></li>
+                        <li><a href="member.html">培训研修 / 연수교육</a></li>
+                        <li><a href="member.html">翻译服务 / 통번역</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>联系方式 / 연락방식</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span>🇰🇷</span>
+                            <span>
+                                서울특별시 중구 명동길 123<br>
+                                首尔特别市中区明洞路123号
+                            </span>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <span>
+                                +82 2-1234-5678 (韩国)<br>
+                                +86 10-8765-4321 (中国)
+                            </span>
+                        </li>
+                        <li>
+                            <span>📧</span>
+                            <span>
+                                info@kctec.org<br>
+                                contact@kctec.cn
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 韩中经贸交流中心 / 한중경제무역교류센터. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // 新闻数据
+        const newsData = [
+            {
+                category: '合作签约 / 협력체결',
+                categoryClass: 'cooperation',
+                title: '中韩新能源汽车产业链合作项目签约 总投资超20亿美元',
+                titleKo: '한중 신에너지 자동차 산업사슬 협력 프로젝트 체결, 총투자 20억 달러 돌파',
+                date: '2026-08-20',
+                source: '人民网',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                imageEmoji: '🤝',
+                imageCaption: '图为签约仪式现场 / 사진은 계약식 현장',
+                imageSource: '图片来源：人民网',
+                content: [
+                    '近日，韩国三大动力电池企业与中国某新能源汽车产业园在首尔正式签署战略合作协议。该项目总投资规模超过20亿美元，是近年来中韩新能源领域最大的合作项目之一。',
+                    '根据协议，双方将在动力电池正极材料、隔膜、电池管理系统等核心零部件领域展开深度合作，共建新能源汽车产业链供应链生态。项目建成后预计年产值将超过100亿元人民币，创造就业岗位5000余个。',
+                    '韩国产业通商资源部相关负责人表示，此次合作是韩中两国在新能源汽车领域优势互补的典范，将有力推动两国新能源汽车产业的共同发展。',
+                    '中国驻韩国大使馆商务处代表出席签约仪式并表示，中方欢迎韩国企业来华投资兴业，将继续为韩资企业在华发展营造良好环境。'
+                ],
+                contentKo: [
+                    '최근 한국 3대 동력전지 기업과 중국某 신에너지 자동차 산업단지가 서울에서 전략적 협력협의를 정식으로 체결했습니다. 이 프로젝트의 총투자 규모는 20억 달러를 넘어 최근 몇 년간 한중 신에너지 분야 최대 협력 프로젝트 중 하나입니다.',
+                    '협의에 따라 쌍방은 동력전지 양극재, 분리막, 배터리 관리 시스템 등 핵심 부품 분야에서 심층적인 협력을 전개하고 신에너지 자동차 산업사슬 공급망 생태계를 공동으로 구축할 예정입니다.',
+                    '한국 산업통상자원부 관계자는 이번 협력이 한중 양국 신에너지 자동차 분야에서 우세를 상호 보완하는 본보기가 되며 양국 신에너지 자동차 산업의 공동 발전을 힘있게 추진할 것이라고 밝혔습니다.'
+                ],
+                comment: '此次合作标志着中韩新能源汽车产业链融合进入新阶段。韩国在电池材料技术方面的优势与中国庞大的市场和制造能力相结合，将产生巨大的协同效应。协会将持续关注项目进展，为会员企业提供相关合作对接服务。',
+                commentKo: '이번 협력은 한중 신에너지 자동차 산업사슬 융합이 새로운 단계에 접어들었음을 의미합니다. 협회는 프로젝트 진전을 지속적으로 주시하며 회원기업에 관련 협력 매칭 서비스를 제공할 것입니다.'
+            },
+            {
+                category: '政策动态 / 정책동향',
+                categoryClass: 'policy',
+                title: '中韩自贸协定第二阶段谈判取得新进展 关税减让幅度扩大',
+                titleKo: '한중 FTA 2단계 협상 새로운 진전... 관세인하 폭 확대',
+                date: '2026-08-18',
+                source: '商务部',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                imageEmoji: '📋',
+                imageCaption: '中韩自贸协定谈判现场 / 한중 FTA 협상 현장',
+                imageSource: '图片来源：商务部官网',
+                content: [
+                    '中韩自贸协定第二阶段谈判第12轮会议近日在首尔举行。双方就服务贸易、投资、知识产权、电子商务等议题深入交换意见，达成多项共识。',
+                    '据了解，本轮谈判在货物贸易关税减让方面取得重要进展。双方同意进一步扩大关税减让范围，新增约300个税号的产品将享受零关税待遇，涵盖电子产品、化工产品、农产品等多个领域。',
+                    '在服务贸易领域，双方就金融服务、电信服务、运输服务等领域的市场准入达成了新的共识。中方将进一步扩大对韩金融服务开放，韩方也将在医疗、教育等领域做出新的开放承诺。',
+                    '此外，双方还就投资便利化、知识产权保护、电子商务规则等议题达成了多项原则性共识，为下一阶段谈判奠定了坚实基础。'
+                ],
+                contentKo: [
+                    '한중 FTA 2단계 협상 제12차 회의가 최근 서울에서 개최되었습니다. 쌍방은 서비스무역, 투자, 지식재산권, 전자상거래 등 의제에 대해 심도있게 의견을 교환했으며 다수의 공감대에 도달했습니다.',
+                    '이번 협상에서 화물무역 관세인하 방면에서 중요한 진전을 이룩했습니다. 쌍방은 관세인하 범위를 더욱 확대하기로 합의했으며 약 300개 품목의 제품이 추가로 영세율 대우를 받게 됩니다.'
+                ],
+                comment: '中韩自贸协定第二阶段谈判的积极进展将为两国企业带来更多市场准入机会。建议会员企业密切关注关税减让清单，及时调整进出口策略，充分利用自贸协定红利。协会将为会员提供政策解读和关税咨询服务。',
+                commentKo: '한중 FTA 2단계 협상의 적극적인 진전은 양국 기업에 더 많은 시장진입 기회를 가져다줄 것입니다. 협회는 회원기업에 정책해석과 관세 자문 서비스를 제공할 것입니다.'
+            },
+            {
+                category: '经贸数据 / 경제무역데이터',
+                categoryClass: 'data',
+                title: '2026年上半年中韩贸易额达1800亿美元 同比增长8.5%',
+                titleKo: '2026년 상반기 한중 무역액 1800억 달러, 전년동기대비 8.5% 증가',
+                date: '2026-08-15',
+                source: '海关总署',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                imageEmoji: '📊',
+                imageCaption: '2026年上半年中韩贸易数据图表 / 2026년 상반기 한중 무역 데이터 차트',
+                imageSource: '图片来源：海关总署',
+                content: [
+                    '据中国海关总署最新发布的数据显示，2026年上半年，中韩双边贸易额达到1800亿美元，同比增长8.5%。其中，中国对韩国出口720亿美元，同比增长12.3%；中国自韩国进口1080亿美元，同比增长6.1%。',
+                    '从贸易结构看，机电产品仍是中韩贸易的主力军，占双边贸易总额的65%以上。其中，半导体、显示面板、汽车零部件等产品贸易增长尤为迅速。',
+                    '值得关注的是，新能源领域贸易增长迅猛。上半年，中国对韩国出口的新能源汽车、锂电池、光伏产品同比分别增长85%、62%和48%，成为双边贸易新的增长点。',
+                    '中国继续保持韩国第一大贸易伙伴国、第一大出口市场和第一大进口来源国地位。韩国是中国第三大贸易伙伴国。'
+                ],
+                contentKo: [
+                    '중국 해관총서가 최근 발표한 데이터에 따르면 2026년 상반기 한중 쌍무역액은 1800억 달러에 달해 전년동기대비 8.5% 증가했습니다.',
+                    '무역구조를 보면 기전제품이 여전히 한중 무역의 주력으로 쌍무역 총액의 65% 이상을 차지하고 있습니다. 그중 반도체, 디스플레이 패널, 자동차 부품 등 제품 무역 증가가 특히 빠릅니다.'
+                ],
+                comment: '中韩贸易持续稳定增长，展现了两国经贸合作的强大韧性和巨大潜力。新能源领域成为新的增长亮点，相关企业应抓住机遇，深化合作。协会可为会员企业提供市场分析和贸易对接服务。',
+                commentKo: '한중 무역이 지속적으로 안정적으로 증가하고 있으며 양국 경제협력의 강한 연성과 거대한 잠재력을 보여주고 있습니다. 협회는 회원기업에 시장분석과 무역 매칭 서비스를 제공할 수 있습니다.'
+            },
+            {
+                category: '合作签约 / 협력체결',
+                categoryClass: 'cooperation',
+                title: '韩国SK集团与中国某科技公司签署半导体材料合作协议',
+                titleKo: '한국 SK그룹, 중국 과학기술기업과 반도체 소재 협력 체결',
+                date: '2026-08-12',
+                source: '韩联社',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+                imageEmoji: '🏭',
+                imageCaption: 'SK材料半导体工厂 / SK머티리얼즈 반도체 공장',
+                imageSource: '图片来源：SK集团官网',
+                content: [
+                    '韩国SK集团旗下SK材料公司与中国某半导体科技公司在首尔签署战略合作协议。根据协议，双方将在半导体高端材料领域开展联合研发和生产合作。',
+                    '据悉，双方将共同投资建设半导体光刻胶和特种气体生产线，项目总投资约5亿美元。项目投产后，将大幅提升中国半导体高端材料的自主供应能力。',
+                    'SK材料相关负责人表示，中国半导体市场发展迅速，与中国企业的合作有助于SK材料进一步扩大市场份额。双方将发挥各自优势，实现互利共赢。',
+                    '业内人士分析，此次合作将推动中韩半导体产业链的深度融合，为两国半导体产业发展注入新动力。'
+                ],
+                contentKo: [
+                    '한국 SK그룹 계열사인 SK머티리얼즈가 중국某 반도체 과학기술기업과 서울에서 전략적 협력협의를 체결했습니다. 협의에 따라 쌍방은 반도체 하이엔드 소재 분야에서 공동 연구개발과 생산 협력을 전개할 예정입니다.',
+                    '쌍방은 공동으로 반도체 포토레지스트와 특수가스 생산라인을 건설할 예정이며 프로젝트 총투자는 약 5억 달러입니다.'
+                ],
+                comment: '中韩半导体产业合作空间巨大。韩国在材料和设备方面具有优势，中国在市场和制造方面具有优势，双方合作前景广阔。协会将积极推动半导体领域的产业对接和技术交流。',
+                commentKo: '한중 반도체 산업 협력 공간은 거대합니다. 협회는 반도체 분야의 산업 매칭과 기술 교류를 적극적으로 추진할 것입니다.'
+            },
+            {
+                category: '展会活动 / 전시활동',
+                categoryClass: 'expo',
+                title: '2026韩中消费精品博览会9月北京举办 200+韩企确认参展',
+                titleKo: '2026 한중소비품엑스포 9월 북경 개최, 200여 개 한국기업 참가확정',
+                date: '2026-08-10',
+                source: '中国贸促会',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                imageEmoji: '🏪',
+                imageCaption: '往届博览会现场 / 지난 엑스포 현장',
+                imageSource: '图片来源：中国贸促会',
+                content: [
+                    '由中国国际贸易促进委员会主办、韩中经贸交流中心协办的"2026韩中消费精品博览会"将于9月15日至18日在北京国家会议中心举办。',
+                    '据组委会介绍，目前已有超过200家韩国企业确认参展，涵盖化妆品、食品饮料、家居用品、时尚服饰、电子产品等多个消费品类。参展企业中既有LG、爱茉莉太平洋等知名大企业，也有大量具有特色的中小企业。',
+                    '博览会期间还将举办"韩中经贸合作论坛"、"韩国优秀品牌推介会"、"采购对接会"等多场配套活动，为两国企业搭建交流合作平台。',
+                    '韩中经贸交流中心作为协办单位，将组织会员企业参展参会，并提供贸易对接服务。会员企业参展可享受展位费优惠。'
+                ],
+                contentKo: [
+                    '중국국제무역촉진위원회가 주최하고 한중경제무역교류센터가 후원하는 "2026 한중소비품엑스포"가 9월 15일부터 18일까지 북경 국가회의센터에서 개최됩니다.',
+                    '조직위원회에 따르면 현재 200여 개 한국기업이 참가를 확정했으며 화장품, 식음료, 생활용품, 패션의류, 전자제품 등 여러 소비품 품목을 아우르고 있습니다.'
+                ],
+                comment: '韩中消费精品博览会是韩国企业进入中国市场的重要平台。建议对中国消费市场感兴趣的会员企业积极参展，通过展会直接接触中国消费者和采购商。协会将为参展会员企业提供全方位支持。',
+                commentKo: '한중소비품엑스포는 한국기업의 중국시장 진출 중요 플랫폼입니다. 협회는 참가 회원기업에 전방위적인 지원을 제공할 것입니다.'
+            },
+            {
+                category: '政策动态 / 정책동향',
+                categoryClass: 'policy',
+                title: '韩国发布中国市场进入支援新政 加大对中小企支持力度',
+                titleKo: '한국, 중국시장 진출 지원新政 발표... 중소기업 지원 강화',
+                date: '2026-08-05',
+                source: '韩国产业部',
+                sourceUrl: '',
+                imageGradient: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 100%)',
+                imageEmoji: '🏛️',
+                imageCaption: '韩国产业通商资源部 / 한국 산업통상자원부',
+                imageSource: '图片来源：韩国产业通商资源部官网',
+                content: [
+                    '韩国产业通商资源部近日发布《中国市场进入支援综合方案》，宣布将在市场调研、法律咨询、品牌推广等方面加大对韩国中小企业的支持力度，帮助更多韩国优质产品进入中国市场。',
+                    '根据方案，韩国政府将设立专项基金，为中小企业提供最高50%的市场开拓费用补贴，包括参展费、市场调研费、认证费等。同时，还将在中国主要城市设立"韩国企业支援中心"，为韩国企业提供本地化服务。',
+                    '在品牌推广方面，韩国政府计划与中国主要电商平台合作，开设"韩国品牌馆"，集中推广韩国优质产品。同时，还将组织韩国品牌参加中国各类展会和促销活动。',
+                    '此外，方案还包括加强中韩贸易纠纷调解机制、完善对韩企的知识产权保护等内容，为韩国企业在华经营提供更好的保障。'
+                ],
+                contentKo: [
+                    '한국 산업통상자원부는 최근 《중국시장 진출 지원 종합방안》을 발표하고 시장조사, 법률자문, 브랜드 홍보 등 방면에서 한국 중소기업에 대한 지원을 강화하여 더 많은 한국 우수제품이 중국시장에 진출하도록 돕겠다고 밝혔습니다.',
+                    '방안에 따라 한국 정부는 특별기금을 설립하여 중소기업에 최고 50%의 시장개척 비용을 보조해줄 예정입니다. 여기에는 참가비, 시장조사비, 인증비 등이 포함됩니다.'
+                ],
+                comment: '韩国政府的新政策将为韩国中小企业进入中国市场提供有力支持。建议会员企业关注政策细节，积极申请相关补贴。韩中经贸交流中心作为在韩中两国均有布局的协会，可以为企业提供政策咨询和落地服务。',
+                commentKo: '한국 정부의 신정책은 한국 중소기업의 중국시장 진출에 힘있는 지원을 제공할 것입니다. 한중경제무역교류센터는 기업에 정책자문과 현지화 서비스를 제공할 수 있습니다.'
+            }
+        ];
+
+        // 显示新闻详情
+        function showNewsDetail(index) {
+            const news = newsData[index];
+            const detailEl = document.getElementById('newsDetailContent');
+            
+            let contentHtml = news.content.map(p => `<p>${p}</p>`).join('');
+            let contentKoHtml = news.contentKo.map(p => `<p>${p}</p>`).join('');
+            
+            detailEl.innerHTML = `
+                <div class="news-detail-header">
+                    <span class="news-detail-category">${news.category}</span>
+                    <h1>${news.title}</h1>
+                    <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 10px;">${news.titleKo}</p>
+                    <div class="news-detail-meta">
+                        <span>📅 ${news.date}</span>
+                        <span>📰 来源：${news.source}</span>
+                        <span>👁️ 已阅读 / 조회수</span>
+                    </div>
+                </div>
+                
+                <div class="news-detail-image" style="background: ${news.imageGradient};">
+                    ${news.imageEmoji}
+                </div>
+                <div class="news-detail-image-caption">
+                    ${news.imageCaption}｜${news.imageSource}
+                </div>
+                
+                <div class="news-detail-body">
+                    <h2>中文 / 중국어</h2>
+                    ${contentHtml}
+                    
+                    <h2>韩文 / 한국어</h2>
+                    ${contentKoHtml}
+                </div>
+                
+                <div class="news-comment">
+                    <h4>协会点评 / 협회 코멘트</h4>
+                    <p>${news.comment}</p>
+                    <p style="margin-top: 10px;">${news.commentKo}</p>
+                </div>
+                
+                <div class="news-copyright-bar">
+                    <h4>📝 版权声明 / 저작권 성명</h4>
+                    <p>
+                        本文由韩中经贸交流中心（한중경제무역교류센터）根据公开信息整理改写，仅供会员参考学习之用。原文版权归原作者及原出处所有。<br>
+                        본문은 한중경제무역교류센터가 공개정보를 바탕으로 정리·재작성한 것으로 회원 참고·학습용으로만 사용됩니다. 원문 저작권은 원저자 및 원 출처에 귀속됩니다.<br><br>
+                        如涉及版权问题，请及时联系我们删除。联系方式：info@kctec.org<br>
+                        저작권 문제가 있을 경우 즉시 연락주시면 삭제하겠습니다. 연락처：info@kctec.org
+                    </p>
+                </div>
+            `;
+            
+            document.getElementById('newsListSection').style.display = 'none';
+            document.getElementById('newsDetailSection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 隐藏新闻详情，返回列表
+        function hideNewsDetail() {
+            document.getElementById('newsDetailSection').style.display = 'none';
+            document.getElementById('newsListSection').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 新闻筛选
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.news-filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 切换激活状态
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    newsCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+

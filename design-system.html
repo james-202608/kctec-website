@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计系统 | Design System - 韩中经贸交流中心</title>
+    <meta name="description" content="韩中经贸交流中心设计系统 - Design Tokens、组件库、动效规范、插画体系">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 设计系统页面专属样式 */
+        .ds-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .ds-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .ds-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%; left: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .ds-hero .container { position: relative; z-index: 1; }
+        .ds-hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .ds-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ff6b9d, #a78bfa, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .ds-hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .ds-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+        .ds-stat {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+        .ds-stat-num {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff6b9d, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+        .ds-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .ds-section {
+            padding: 80px 0;
+        }
+        .ds-section:nth-child(even) {
+            background: #f8fafc;
+        }
+        [data-theme="dark"] .ds-section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+        .ds-section-header {
+            margin-bottom: 48px;
+        }
+        .ds-section-num {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+        .ds-section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .ds-section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* 色板 */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        .color-swatch {
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease;
+        }
+        [data-theme="dark"] .color-swatch {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+        .color-swatch:hover { transform: translateY(-2px); }
+        .color-swatch-preview {
+            height: 80px;
+        }
+        .color-swatch-info {
+            padding: 12px;
+        }
+        .color-swatch-name {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+        .color-swatch-token {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* 排版展示 */
+        .type-showcase {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .type-showcase {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+        .type-row {
+            display: flex;
+            align-items: baseline;
+            gap: 24px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        [data-theme="dark"] .type-row {
+            border-bottom-color: var(--border-tertiary);
+        }
+        .type-row:last-child { border-bottom: none; }
+        .type-spec {
+            width: 140px;
+            flex-shrink: 0;
+        }
+        .type-token {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        .type-size {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+        .type-sample {
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        /* 间距展示 */
+        .spacing-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+        }
+        .spacing-label {
+            width: 100px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        .spacing-bar {
+            height: 24px;
+            background: linear-gradient(90deg, #ff6b9d, #7c3aed);
+            border-radius: 6px;
+        }
+        .spacing-value {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            min-width: 50px;
+        }
+
+        /* 按钮展示 */
+        .btn-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            padding: 24px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .btn-showcase {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+
+        /* 卡片展示 */
+        .card-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .ds-card-demo {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(124, 58, 237, 0.08);
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .ds-card-demo {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+        .ds-card-demo:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+        }
+        .ds-card-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+        .ds-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .ds-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* 动效演示 */
+        .motion-demo {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        .motion-item {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        [data-theme="dark"] .motion-item {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+        .motion-ball {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #7c3aed);
+            margin: 0 auto 16px;
+            transition: transform 0.5s ease;
+        }
+        .motion-item:hover .motion-ball { transform: translateY(-20px); }
+        .motion-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .motion-ease {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* 插画展示 */
+        .illustration-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .illust-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        [data-theme="dark"] .illust-card {
+            background: var(--bg-secondary);
+            border-color: var(--border-primary);
+        }
+        .illust-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(124, 58, 237, 0.12);
+        }
+        .illust-svg {
+            width: 80px; height: 80px;
+            margin: 0 auto 16px;
+        }
+        .illust-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .illust-usage {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* 侧边导航 */
+        .ds-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+        .ds-sidebar a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-left: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .ds-sidebar a:hover,
+        .ds-sidebar a.active {
+            color: #7c3aed;
+            border-left-color: #7c3aed;
+            background: rgba(124, 58, 237, 0.05);
+        }
+        .ds-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 48px;
+        }
+
+        @media (max-width: 1024px) {
+            .ds-stats { grid-template-columns: repeat(2, 1fr); }
+            .card-showcase { grid-template-columns: repeat(2, 1fr); }
+            .motion-demo { grid-template-columns: repeat(3, 1fr); }
+            .illustration-grid { grid-template-columns: repeat(2, 1fr); }
+            .ds-layout { grid-template-columns: 1fr; }
+            .ds-sidebar { display: none; }
+        }
+        @media (max-width: 640px) {
+            .ds-hero h1 { font-size: 2rem; }
+            .ds-stats { grid-template-columns: 1fr 1fr; }
+            .card-showcase { grid-template-columns: 1fr; }
+            .motion-demo { grid-template-columns: repeat(2, 1fr); }
+            .illustration-grid { grid-template-columns: 1fr 1fr; }
+            .color-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrap">
+                <div class="logo-icon"><span class="logo-kctec">KCTEC</span></div>
+                <div class="logo-text">
+                    <h1>韩中经贸交流中心</h1>
+                    <p><span class="logo-kr">한중경제무역교류센터</span>KCTEC</p>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">首页<small>홈</small></a></li>
+                <li>
+                    <a href="about.html">关于协会<small>협회소개</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html#advantages">核心优势 / 핵심우세</a></li>
+                        <li><a href="about.html#history">发展历程 / 발전역사</a></li>
+                        <li><a href="about.html#organization">组织架构 / 조직구조</a></li>
+                        <li><a href="about.html#partners">协作机构 / 협력기관</a></li>
+                        <li><a href="about.html#leadership">领导团队 / 리더십팀</a></li>
+                    </ul>
+                </li>
+                <li><a href="member.html">会员服务<small>회원서비스</small></a></li>
+                <li>
+                    <a href="news.html">新闻资讯<small>뉴스</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="news.html#latest">最新动态 / 최신동향</a></li>
+                        <li><a href="news.html#policy">政策动态 / 정책동향</a></li>
+                        <li><a href="news.html#cooperation">合作签约 / 협력체결</a></li>
+                        <li><a href="news.html#data">经贸数据 / 경제무역데이터</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="events.html">经贸活动<small>경제무역활동</small></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="events.html#upcoming">近期活动 / 예정활동</a></li>
+                        <li><a href="events.html#past">活动回顾 / 활동회고</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">联系我们<small>연락처</small></a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="ds-hero">
+        <div class="container">
+            <div class="ds-hero-badge">🎨 Design System v1.0</div>
+            <h1>韩中经贸交流中心<br>设计系统</h1>
+            <p>
+                一套完整的设计语言体系，涵盖 Design Tokens、组件库、动效规范与插画体系，<br>
+                确保品牌视觉在全平台的一致性与高品质表达。
+            </p>
+            <div class="ds-stats">
+                <div class="ds-stat">
+                    <div class="ds-stat-num">60+</div>
+                    <div class="ds-stat-label">设计变量</div>
+                </div>
+                <div class="ds-stat">
+                    <div class="ds-stat-num">20+</div>
+                    <div class="ds-stat-label">组件类型</div>
+                </div>
+                <div class="ds-stat">
+                    <div class="ds-stat-num">5</div>
+                    <div class="ds-stat-label">动效曲线</div>
+                </div>
+                <div class="ds-stat">
+                    <div class="ds-stat-num">2</div>
+                    <div class="ds-stat-label">主题模式</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主体内容 -->
+    <div class="ds-layout container" style="padding: 60px 0;">
+        <!-- 侧边导航 -->
+        <aside class="ds-sidebar">
+            <a href="#colors" class="active">🎨 色彩系统</a>
+            <a href="#typography">🔤 排版系统</a>
+            <a href="#spacing">📐 间距与圆角</a>
+            <a href="#shadows">💫 阴影系统</a>
+            <a href="#motion">✨ 动效规范</a>
+            <a href="#buttons">🔘 按钮组件</a>
+            <a href="#cards">🃏 卡片组件</a>
+            <a href="#illustrations">🖼️ 插画体系</a>
+        </aside>
+
+        <!-- 主内容 -->
+        <main>
+            <!-- 色彩系统 -->
+            <section id="colors" class="ds-section" style="padding: 0 0 60px;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">01 / Colors</span>
+                    <h2 class="ds-section-title">色彩系统</h2>
+                    <p class="ds-section-desc">以粉紫蓝三色渐变为主轴，构建品牌识别与功能语义的完整色板</p>
+                </div>
+
+                <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">品牌主色 / Brand Colors</h3>
+                <div class="color-grid" style="margin-bottom: 48px;">
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #ff6b9d;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Primary Pink</div>
+                            <div class="color-swatch-token">--brand-primary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #ff8fb8;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Primary Light</div>
+                            <div class="color-swatch-token">--brand-primary-light</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #7c3aed;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Secondary Purple</div>
+                            <div class="color-swatch-token">--brand-secondary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #a78bfa;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Secondary Light</div>
+                            <div class="color-swatch-token">--brand-secondary-light</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #3b82f6;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Tertiary Blue</div>
+                            <div class="color-swatch-token">--brand-tertiary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: linear-gradient(135deg, #ff6b9d, #7c3aed, #3b82f6);"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Brand Gradient</div>
+                            <div class="color-swatch-token">--gradient-brand</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">中性色 / Neutrals</h3>
+                <div class="color-grid" style="margin-bottom: 48px;">
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #1e1b4b;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Text Primary</div>
+                            <div class="color-swatch-token">--text-primary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #4338ca;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Text Secondary</div>
+                            <div class="color-swatch-token">--text-secondary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #6366f1;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Text Tertiary</div>
+                            <div class="color-swatch-token">--text-tertiary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #94a3b8;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Text Muted</div>
+                            <div class="color-swatch-token">--text-muted</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #f8fafc; border-bottom: 1px solid #e2e8f0;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Bg Secondary</div>
+                            <div class="color-swatch-token">--bg-secondary</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #ffffff; border-bottom: 1px solid #e2e8f0;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Bg Primary</div>
+                            <div class="color-swatch-token">--bg-primary</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">功能色 / Accent Colors</h3>
+                <div class="color-grid">
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #06b6d4;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Cyan</div>
+                            <div class="color-swatch-token">--accent-cyan</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #10b981;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Green</div>
+                            <div class="color-swatch-token">--accent-green</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #fbbf24;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Yellow</div>
+                            <div class="color-swatch-token">--accent-yellow</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #f97316;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Orange</div>
+                            <div class="color-swatch-token">--accent-orange</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #ec4899;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Pink</div>
+                            <div class="color-swatch-token">--accent-pink</div>
+                        </div>
+                    </div>
+                    <div class="color-swatch">
+                        <div class="color-swatch-preview" style="background: #ef4444;"></div>
+                        <div class="color-swatch-info">
+                            <div class="color-swatch-name">Red</div>
+                            <div class="color-swatch-token">--accent-red</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 排版系统 -->
+            <section id="typography" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">02 / Typography</span>
+                    <h2 class="ds-section-title">排版系统</h2>
+                    <p class="ds-section-desc">中韩双语混排规范，确保两国文字的视觉平衡与阅读舒适度</p>
+                </div>
+                <div class="type-showcase">
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-4xl</div>
+                            <div class="type-size">2.8rem / 44.8px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 2.8rem; font-weight: 900;">韩中经贸 KCTEC</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-3xl</div>
+                            <div class="type-size">2rem / 32px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 2rem; font-weight: 800;">交流中心 한중경제</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-2xl</div>
+                            <div class="type-size">1.6rem / 25.6px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 1.6rem; font-weight: 700;">Section Title 섹션제목</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-xl</div>
+                            <div class="type-size">1.3rem / 20.8px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 1.3rem; font-weight: 700;">Card Title 카드제목</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-lg</div>
+                            <div class="type-size">1.1rem / 17.6px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 1.1rem; font-weight: 600;">Subheading 소제목</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-base</div>
+                            <div class="type-size">0.95rem / 15.2px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 0.95rem; font-weight: 400;">正文内容 본문내용 Body Text</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-sm</div>
+                            <div class="type-size">0.8rem / 12.8px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 0.8rem; font-weight: 500; color: #94a3b8;">辅助说明 보조설명 Caption</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-spec">
+                            <div class="type-token">--font-xs</div>
+                            <div class="type-size">0.7rem / 11.2px</div>
+                        </div>
+                        <div class="type-sample" style="font-size: 0.7rem; font-weight: 500; color: #94a3b8;">极小标签 미니라벨 Label</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 间距与圆角 -->
+            <section id="spacing" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">03 / Spacing & Radius</span>
+                    <h2 class="ds-section-title">间距与圆角</h2>
+                    <p class="ds-section-desc">4px 基准的间距尺度，配合五档圆角系统，构建一致的空间节奏</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">间距尺度 / Spacing Scale</h3>
+                        <div style="background: white; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0;">
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-1</div>
+                                <div class="spacing-bar" style="width: 4px;"></div>
+                                <div class="spacing-value">4px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-2</div>
+                                <div class="spacing-bar" style="width: 8px;"></div>
+                                <div class="spacing-value">8px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-3</div>
+                                <div class="spacing-bar" style="width: 12px;"></div>
+                                <div class="spacing-value">12px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-4</div>
+                                <div class="spacing-bar" style="width: 16px;"></div>
+                                <div class="spacing-value">16px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-5</div>
+                                <div class="spacing-bar" style="width: 20px;"></div>
+                                <div class="spacing-value">20px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-6</div>
+                                <div class="spacing-bar" style="width: 24px;"></div>
+                                <div class="spacing-value">24px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-8</div>
+                                <div class="spacing-bar" style="width: 32px;"></div>
+                                <div class="spacing-value">32px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-10</div>
+                                <div class="spacing-bar" style="width: 40px;"></div>
+                                <div class="spacing-value">40px</div>
+                            </div>
+                            <div class="spacing-row">
+                                <div class="spacing-label">--space-12</div>
+                                <div class="spacing-bar" style="width: 48px;"></div>
+                                <div class="spacing-value">48px</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">圆角尺度 / Radius Scale</h3>
+                        <div style="background: white; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; justify-items: center;">
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 8px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">sm</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">8px</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 12px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">md</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">12px</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 20px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">lg</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">20px</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 28px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">xl</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">28px</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 40px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">2xl</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">40px</div>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ff6b9d, #7c3aed); border-radius: 999px; margin: 0 auto 10px;"></div>
+                                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-primary);">full</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted); font-family: monospace;">999px</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 阴影系统 -->
+            <section id="shadows" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">04 / Shadows</span>
+                    <h2 class="ds-section-title">阴影系统</h2>
+                    <p class="ds-section-desc">统一紫色调阴影，构建自然的层次关系与空间深度</p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px;">
+                    <div style="text-align: center;">
+                        <div style="height: 80px; background: white; border-radius: 12px; box-shadow: 0 1px 3px rgba(124, 58, 237, 0.06); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.8rem;">xs</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">--shadow-xs</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="height: 80px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.8rem;">sm</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">--shadow-sm</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="height: 80px; background: white; border-radius: 12px; box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.8rem;">md</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">--shadow-md</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="height: 80px; background: white; border-radius: 12px; box-shadow: 0 20px 50px rgba(124, 58, 237, 0.2); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.8rem;">lg</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">--shadow-lg</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="height: 80px; background: white; border-radius: 12px; box-shadow: 0 32px 60px rgba(124, 58, 237, 0.25); margin-bottom: 12px; display: flex; align-items: center; justify-content: center; color: #7c3aed; font-weight: 700; font-size: 0.8rem;">xl</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: monospace;">--shadow-xl</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 动效规范 -->
+            <section id="motion" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">05 / Motion</span>
+                    <h2 class="ds-section-title">动效规范</h2>
+                    <p class="ds-section-desc">五种缓动曲线 + 五档时长，塑造灵动而克制的动效语言</p>
+                </div>
+                <div class="motion-demo">
+                    <div class="motion-item">
+                        <div class="motion-ball" style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                        <div class="motion-name">Standard</div>
+                        <div class="motion-ease">ease-in-out</div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">标准过渡</div>
+                    </div>
+                    <div class="motion-item">
+                        <div class="motion-ball" style="transition-timing-function: cubic-bezier(0, 0, 0.2, 1);"></div>
+                        <div class="motion-name">Decelerate</div>
+                        <div class="motion-ease">ease-out</div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">减速出场</div>
+                    </div>
+                    <div class="motion-item">
+                        <div class="motion-ball" style="transition-timing-function: cubic-bezier(0.4, 0, 1, 1);"></div>
+                        <div class="motion-name">Accelerate</div>
+                        <div class="motion-ease">ease-in</div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">加速退场</div>
+                    </div>
+                    <div class="motion-item">
+                        <div class="motion-ball" style="transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);"></div>
+                        <div class="motion-name">Spring</div>
+                        <div class="motion-ease">back-out</div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">弹性回弹</div>
+                    </div>
+                    <div class="motion-item">
+                        <div class="motion-ball" style="transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);"></div>
+                        <div class="motion-name">Soft</div>
+                        <div class="motion-ease">ease-in-out</div>
+                        <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 4px;">柔和过渡</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 按钮组件 -->
+            <section id="buttons" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">06 / Buttons</span>
+                    <h2 class="ds-section-title">按钮组件</h2>
+                    <p class="ds-section-desc">六种按钮风格，覆盖不同场景的交互需求</p>
+                </div>
+                <div class="btn-showcase">
+                    <button class="btn btn-primary btn-shine">主按钮 Primary</button>
+                    <button class="btn btn-secondary">次按钮 Secondary</button>
+                    <button class="btn btn-outline">线框 Outline</button>
+                    <button class="btn btn-ghost">幽灵 Ghost</button>
+                    <button class="btn btn-text">文字 Text</button>
+                    <button class="btn btn-icon">✨ 图标 Icon</button>
+                </div>
+            </section>
+
+            <!-- 卡片组件 -->
+            <section id="cards" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">07 / Cards</span>
+                    <h2 class="ds-section-title">卡片组件</h2>
+                    <p class="ds-section-desc">统一的卡片容器规范，承载不同类型的内容展示</p>
+                </div>
+                <div class="card-showcase">
+                    <div class="ds-card-demo">
+                        <div class="ds-card-icon" style="background: linear-gradient(135deg, #fef3c7, #fde68a);">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="ds-card-title">服务卡片</div>
+                        <div class="ds-card-desc">用于展示服务项目、功能特性等内容，图标+标题+描述的经典结构。</div>
+                    </div>
+                    <div class="ds-card-demo">
+                        <div class="ds-card-icon" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe);">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="ds-card-title">活动卡片</div>
+                        <div class="ds-card-desc">用于展示经贸活动、展会信息，带日期标签和活动状态标识。</div>
+                    </div>
+                    <div class="ds-card-demo">
+                        <div class="ds-card-icon" style="background: linear-gradient(135deg, #fce7f3, #fbcfe8);">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="ds-card-title">新闻卡片</div>
+                        <div class="ds-card-desc">用于展示新闻资讯，带分类标签、发布时间和摘要预览。</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 插画体系 -->
+            <section id="illustrations" class="ds-section" style="padding: 60px 0;">
+                <div class="ds-section-header">
+                    <span class="ds-section-num">08 / Illustrations</span>
+                    <h2 class="ds-section-title">插画体系</h2>
+                    <p class="ds-section-desc">定制化线性风格 SVG 插画，统一品牌视觉语言</p>
+                </div>
+                <div class="illustration-grid">
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="15" width="60" height="50" rx="8" fill="url(#grad1)" opacity="0.15"/>
+                            <rect x="10" y="15" width="60" height="50" rx="8" stroke="url(#grad1)" stroke-width="2"/>
+                            <circle cx="28" cy="35" r="6" fill="url(#grad1)"/>
+                            <path d="M22 50h32" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M22 58h24" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                            <circle cx="55" cy="32" r="10" fill="url(#grad1)" opacity="0.2"/>
+                            <path d="M52 32l2 2 4-4" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d"/>
+                                    <stop offset="50%" style="stop-color:#7c3aed"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">资质认证</div>
+                        <div class="illust-usage">会员服务 / 资质展示</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="28" fill="url(#grad2)" opacity="0.1"/>
+                            <circle cx="40" cy="40" r="28" stroke="url(#grad2)" stroke-width="2" stroke-dasharray="4 3"/>
+                            <path d="M40 22v18l12 6" stroke="url(#grad2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="40" cy="40" r="3" fill="url(#grad2)"/>
+                            <circle cx="40" cy="18" r="4" fill="url(#grad2)"/>
+                            <circle cx="62" cy="40" r="4" fill="url(#grad2)" opacity="0.5"/>
+                            <defs>
+                                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d"/>
+                                    <stop offset="100%" style="stop-color:#7c3aed"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">快速响应</div>
+                        <div class="illust-usage">服务效率 / 响应速度</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 14l22 12v16c0 14-10 22-22 24-12-2-22-10-22-24V26L40 14z" fill="url(#grad3)" opacity="0.15"/>
+                            <path d="M40 14l22 12v16c0 14-10 22-22 24-12-2-22-10-22-24V26L40 14z" stroke="url(#grad3)" stroke-width="2"/>
+                            <path d="M30 40l7 7 14-14" stroke="url(#grad3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">安全保障</div>
+                        <div class="illust-usage">数据安全 / 风险防控</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="14" y="18" width="22" height="44" rx="6" fill="url(#grad4)" opacity="0.15"/>
+                            <rect x="14" y="18" width="22" height="44" rx="6" stroke="url(#grad4)" stroke-width="2"/>
+                            <rect x="44" y="28" width="22" height="34" rx="6" fill="url(#grad4b)" opacity="0.15"/>
+                            <rect x="44" y="28" width="22" height="34" rx="6" stroke="url(#grad4b)" stroke-width="2"/>
+                            <path d="M25 30h10M25 38h10M25 46h6" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="55" cy="42" r="8" stroke="url(#grad4b)" stroke-width="2"/>
+                            <path d="M51 42l3 3 5-5" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff6b9d"/>
+                                    <stop offset="100%" style="stop-color:#f97316"/>
+                                </linearGradient>
+                                <linearGradient id="grad4b" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#7c3aed"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">数据报告</div>
+                        <div class="illust-usage">经贸数据 / 研究报告</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="26" fill="url(#grad5)" opacity="0.1"/>
+                            <path d="M40 16v48M16 40h48" stroke="url(#grad5)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="40" cy="40" r="10" fill="url(#grad5)" opacity="0.3"/>
+                            <circle cx="40" cy="40" r="4" fill="url(#grad5)"/>
+                            <path d="M26 26l4 4M50 26l-4 4M26 54l4-4M50 54l-4-4" stroke="url(#grad5)" stroke-width="2" stroke-linecap="round"/>
+                            <defs>
+                                <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fbbf24"/>
+                                    <stop offset="100%" style="stop-color:#f97316"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">全球网络</div>
+                        <div class="illust-usage">国际合作 / 全球布局</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M40 16l8 16 18 2-13 13 3 18-16-9-16 9 3-18-13-13 18-2z" fill="url(#grad6)" opacity="0.15"/>
+                            <path d="M40 16l8 16 18 2-13 13 3 18-16-9-16 9 3-18-13-13 18-2z" stroke="url(#grad6)" stroke-width="2" stroke-linejoin="round"/>
+                            <circle cx="40" cy="40" r="6" fill="white" stroke="url(#grad6)" stroke-width="2"/>
+                            <defs>
+                                <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8b5cf6"/>
+                                    <stop offset="100%" style="stop-color:#ec4899"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">优质资源</div>
+                        <div class="illust-usage">核心资源 / 优选项目</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="12" y="20" width="56" height="40" rx="6" fill="url(#grad7)" opacity="0.1"/>
+                            <rect x="12" y="20" width="56" height="40" rx="6" stroke="url(#grad7)" stroke-width="2"/>
+                            <circle cx="28" cy="38" r="8" stroke="url(#grad7)" stroke-width="2"/>
+                            <path d="M22 52h12" stroke="url(#grad7)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M44 34h16M44 40h12M44 46h14" stroke="url(#grad7)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                            <circle cx="62" cy="22" r="6" fill="url(#grad7)"/>
+                            <path d="M60 22l1.5 1.5 3-3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#06b6d4"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">项目对接</div>
+                        <div class="illust-usage">项目合作 / 精准匹配</div>
+                    </div>
+                    <div class="illust-card">
+                        <svg class="illust-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 52l12-12 10 10 18-18 8 8" stroke="url(#grad8)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="28" cy="40" r="4" fill="url(#grad8)"/>
+                            <circle cx="38" cy="50" r="4" fill="url(#grad8)"/>
+                            <circle cx="56" cy="32" r="4" fill="url(#grad8)"/>
+                            <circle cx="64" cy="40" r="5" fill="url(#grad8)"/>
+                            <path d="M64 38l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 60h48" stroke="url(#grad8)" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+                            <defs>
+                                <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981"/>
+                                    <stop offset="100%" style="stop-color:#06b6d4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="illust-name">增长趋势</div>
+                        <div class="illust-usage">业绩增长 / 发展态势</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon" style="margin-bottom: 15px;"><span class="logo-kctec">KCTEC</span></div>
+                    <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.6;">
+                        한중경제무역교류센터<br>
+                        KCTEC · Korea-China Trade & Economic Center<br><br>
+                        部委级资源 · 国家级项目 · 虚拟办公 · 高效服务<br>
+                        부처급 자원 · 국가급 프로젝트 · 가상오피스 · 고효율 서비스
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 韩中经贸交流中心 / 한중경제무역교류센터. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
