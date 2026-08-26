@@ -6302,3 +6302,16 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
         font-size: 1.05rem !important;
     }
 }
+
+/* ===== 匹配主色调粉红玫瑰 ===== */
+@media (max-width: 768px) {
+    .hero {
+        background: linear-gradient(180deg, #c44569 0%, #e05680 6%, #ff6b9d 12%, rgba(255, 107, 157, 0.7) 18%, rgba(255, 107, 157, 0.35) 24%, rgba(255, 143, 184, 0.15) 30%, rgba(255, 168, 200, 0.05) 36%, #f8fafc 40%, #f8fafc 100%) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background: linear-gradient(180deg, #c44569 0%, #e05680 5%, #ff6b9d 10%, rgba(255, 107, 157, 0.7) 16%, rgba(255, 107, 157, 0.35) 22%, rgba(255, 143, 184, 0.15) 28%, rgba(255, 168, 200, 0.05) 34%, #f8fafc 38%, #f8fafc 100%) !important;
+    }
+}
