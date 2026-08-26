@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-CN" data-theme="dark"><head>
+<html lang="zh-CN" data-theme="gov"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>韩中经贸交流中心 | 한중경제무역교류센터</title>
@@ -13,11 +13,11 @@
                     <a href="#">한국어</a>
                 </div>
             </div>
-        </div>
-    </div>
+        
+    
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar scrolled" id="navbar">
         <div class="container">
             <a href="index.html" class="logo-wrap">
                 <div class="logo-icon"><span class="logo-kctec">KCTEC</span></div>
@@ -62,7 +62,7 @@
                     </ul>
                 </li>
                 <li><a href="contact.html">联系我们<small>연락처 / Contact</small></a></li>
-            </ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题">☀️</button><button class="mobile-menu-btn" id="mobileMenuBtn">
+            </ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="政务模式（点击切换）">🏛️</button><button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -155,6 +155,75 @@
             <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,70 L1440,120 L0,120 Z" fill="#f8fafc"></path>
         </svg>
     </section>
+
+    <!-- 新闻资讯 -->
+    <section class="section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">新闻资讯 / 뉴스</span>
+                <h2 class="section-title">韩中经贸最新动态</h2>
+                <p class="section-subtitle">
+                    한중 경제협력 최신 동향과 정책정보를 신속하게 전해드립니다.<br>
+                    及时传递韩中经贸合作最新动态与政策信息
+                </p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card" onclick="location.href='news.html'">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        🤝
+                        <span class="news-card-tag">合作签约</span>
+                        <span class="news-card-source">来源：人民网</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-20</div>
+                        <h3>中韩新能源汽车产业链合作项目签约 总投资超20亿美元</h3>
+                        <p class="news-card-excerpt">韩国三大动力电池企业与中国新能源汽车产业园正式签署合作协议...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 人民网 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card" onclick="location.href='news.html'">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        📋
+                        <span class="news-card-tag">政策动态</span>
+                        <span class="news-card-source">来源：商务部</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-18</div>
+                        <h3>中韩自贸协定第二阶段谈判取得新进展 关税减让幅度扩大</h3>
+                        <p class="news-card-excerpt">双方就服务贸易、投资等领域达成多项共识，关税减让范围进一步扩大...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 商务部 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-card" onclick="location.href='news.html'">
+                    <div class="news-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        📊
+                        <span class="news-card-tag">经贸数据</span>
+                        <span class="news-card-source">来源：海关总署</span>
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-date">📅 2026-08-15</div>
+                        <h3>2026年上半年中韩贸易额达1800亿美元 同比增长8.5%</h3>
+                        <p class="news-card-excerpt">中国继续保持韩国第一大贸易伙伴地位，新能源领域贸易增长迅猛...</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-source-tag">📰 海关总署 · 整理发布</span>
+                            <span class="news-card-read-more">阅读更多 →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="news.html" class="btn btn-outline">查看更多新闻 / 뉴스 더 보기 →</a>
+            </div>
+        </div>
+    </section>
+
+    
 
     <!-- 数据统计卡片 -->
     <div class="stats-wrap">
@@ -681,75 +750,7 @@
             </div>
         </div>
     </section>
-
-    <!-- 新闻资讯 -->
-    <section class="section" id="news">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">新闻资讯 / 뉴스</span>
-                <h2 class="section-title">韩中经贸最新动态</h2>
-                <p class="section-subtitle">
-                    한중 경제협력 최신 동향과 정책정보를 신속하게 전해드립니다.<br>
-                    及时传递韩中经贸合作最新动态与政策信息
-                </p>
-            </div>
-            <div class="news-grid">
-                <div class="news-card" onclick="location.href='news.html'">
-                    <div class="news-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        🤝
-                        <span class="news-card-tag">合作签约</span>
-                        <span class="news-card-source">来源：人民网</span>
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">📅 2026-08-20</div>
-                        <h3>中韩新能源汽车产业链合作项目签约 总投资超20亿美元</h3>
-                        <p class="news-card-excerpt">韩国三大动力电池企业与中国新能源汽车产业园正式签署合作协议...</p>
-                        <div class="news-card-footer">
-                            <span class="news-card-source-tag">📰 人民网 · 整理发布</span>
-                            <span class="news-card-read-more">阅读更多 →</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-card" onclick="location.href='news.html'">
-                    <div class="news-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        📋
-                        <span class="news-card-tag">政策动态</span>
-                        <span class="news-card-source">来源：商务部</span>
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">📅 2026-08-18</div>
-                        <h3>中韩自贸协定第二阶段谈判取得新进展 关税减让幅度扩大</h3>
-                        <p class="news-card-excerpt">双方就服务贸易、投资等领域达成多项共识，关税减让范围进一步扩大...</p>
-                        <div class="news-card-footer">
-                            <span class="news-card-source-tag">📰 商务部 · 整理发布</span>
-                            <span class="news-card-read-more">阅读更多 →</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-card" onclick="location.href='news.html'">
-                    <div class="news-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        📊
-                        <span class="news-card-tag">经贸数据</span>
-                        <span class="news-card-source">来源：海关总署</span>
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-date">📅 2026-08-15</div>
-                        <h3>2026年上半年中韩贸易额达1800亿美元 同比增长8.5%</h3>
-                        <p class="news-card-excerpt">中国继续保持韩国第一大贸易伙伴地位，新能源领域贸易增长迅猛...</p>
-                        <div class="news-card-footer">
-                            <span class="news-card-source-tag">📰 海关总署 · 整理发布</span>
-                            <span class="news-card-read-more">阅读更多 →</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="news.html" class="btn btn-outline">查看更多新闻 / 뉴스 더 보기 →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 发展历程 -->
+<!-- 发展历程 -->
     <section class="timeline-section" id="history">
         <div class="container">
             <div class="section-header">
@@ -1197,7 +1198,16 @@
 
 
 
-</body></html>
+
+
+
+
+
+
+
+
+</div></div></body></html>
+
 
 
 
