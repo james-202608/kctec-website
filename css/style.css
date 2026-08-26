@@ -5479,3 +5479,125 @@ img {
     }
 }
 
+
+/* ===== 辽宁样板板块 ===== */
+.liaoning-showcase {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.liaoning-showcase::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(251,191,36,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.liaoning-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.liaoning-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(251,191,36,0.15);
+    border: 1px solid rgba(251,191,36,0.4);
+    color: #fbbf24;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+.liaoning-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.liaoning-title span {
+    color: #fbbf24;
+}
+.liaoning-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.85;
+    margin-bottom: 32px;
+}
+.liaoning-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.liaoning-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    text-align: center;
+    transition: all 0.3s var(--ease-standard);
+}
+.liaoning-stat:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-4px);
+}
+.liaoning-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fbbf24;
+    margin-bottom: 6px;
+}
+.liaoning-stat-label {
+    font-size: 0.85rem;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+.liaoning-image-wrap {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+.liaoning-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.liaoning-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+@media (max-width: 768px) {
+    .liaoning-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .liaoning-title {
+        font-size: 1.6rem;
+    }
+    .liaoning-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .liaoning-stat {
+        padding: 16px;
+    }
+    .liaoning-stat-number {
+        font-size: 1.5rem;
+    }
+}
+
