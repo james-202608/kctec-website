@@ -2042,9 +2042,7 @@ img {
     pointer-events: none;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 60px;
+.section-header {`n    text-align: center;`n    margin-bottom: 40px;
     position: relative;
 }
 
@@ -3624,7 +3622,7 @@ img {
 }
 
 .history-date-badge .date-day {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 900;
     background: linear-gradient(135deg, #ff6b9d, #7c3aed);
     -webkit-background-clip: text;
@@ -5085,7 +5083,7 @@ img {
     .hero-badge {
         font-size: 0.75rem;
         padding: 6px 14px 6px 6px;
-    }
+    }`n    `n    .hero-badge, .hero h1, .hero-buttons, .hero-trust {`n        display: block !important;`n        opacity: 1 !important;`n        transform: none !important;`n        animation: none !important;`n    }`n    `n    .hero-badge {`n        display: inline-flex !important;`n    }
     
     .hero h1 {
         font-size: 1.8rem;
@@ -5116,7 +5114,7 @@ img {
         height: auto;
         background: none;
         border-radius: 0;
-    }
+    }`n    `n    .logo-text {`n        display: none;`n    }
     
     .logo-text h1 {
         font-size: 0.95rem;
@@ -5482,7 +5480,7 @@ img {
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 10px;
-    }
+    }`n    `n    @media (max-width: 480px) {`n        .gallery-grid {`n            grid-template-columns: 1fr;`n            gap: 16px;`n        }`n        .gallery-item {`n            min-height: 280px;`n            border-radius: 16px;`n        }`n        .gallery-item-caption {`n            font-size: 1rem;`n            padding: 20px 16px 16px;`n        }`n    }
     .gallery-item-caption {
         opacity: 1;
         font-size: 0.75rem;
@@ -5678,5 +5676,9 @@ img {
         font-size: 0.9rem;
     }
 }
+
+
+
+
 
 
