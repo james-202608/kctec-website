@@ -5968,3 +5968,57 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 
 
 
+
+/* ===== 手机端Hero强制压缩（最终覆盖） ===== */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto !important;
+        padding: 24px 0 12px !important;
+        background: linear-gradient(180deg, #312e81 0%, #4c1d95 20%, #f8fafc 50%, #f8fafc 100%) !important;
+        overflow: hidden !important;
+    }
+    .hero-noise,
+    .hero-decoration,
+    .hero-wave {
+        display: none !important;
+    }
+    .hero::before,
+    .hero::after {
+        display: none !important;
+    }
+    .hero-compact {
+        gap: 16px !important;
+    }
+    .hero-compact-visual {
+        display: none !important;
+    }
+    .hero h1 {
+        font-size: 1.4rem !important;
+        margin: 8px 0 6px 0 !important;
+    }
+    .hero-desc {
+        font-size: 0.8rem !important;
+        margin-bottom: 12px !important;
+    }
+    .hero-badge {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.6rem !important;
+    }
+    .hero-buttons .btn {
+        padding: 8px 18px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 20px 0 10px !important;
+    }
+    .hero h1 {
+        font-size: 1.2rem !important;
+    }
+    .hero-desc {
+        font-size: 0.75rem !important;
+        margin-bottom: 10px !important;
+    }
+}
