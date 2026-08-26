@@ -4726,11 +4726,11 @@ img {
     }
     
     .logo-icon {
-        font-size: 1.4rem;
-        width: auto;
-        height: auto;
-        background: none;
-        border-radius: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
     }
     
     .logo-text h1 {
@@ -5109,12 +5109,16 @@ img {
     }
     
     .logo-icon {
-        font-size: 1.2rem;
-        width: auto;
-        height: auto;
-        background: none;
-        border-radius: 0;
-    }`n    `n    .logo-text {`n        display: none;`n    }
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+    
+    .logo-text {
+        display: block;
+    }
     
     .logo-text h1 {
         font-size: 0.95rem;
