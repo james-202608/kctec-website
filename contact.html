@@ -1,22 +1,21 @@
-﻿<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="gov"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>联系我们 - 韩中经贸交流中心 | 연락처 - 한중경제무역교류센터</title>
     <meta name="description" content="联系韩中经贸交流中心，获取更多信息和服务。한중경제무역교류센터에 연락하여 더 많은 정보와 서비스를 받으세요.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&amp;family=Noto+Sans+SC:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <!-- 导航栏 -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar scrolled" id="navbar">
         <div class="container">
             <a href="index.html" class="logo-wrap">
-                <div class="logo-icon" style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; display: flex; align-items: center; justify-content: center;"><img src="images/kctec-logo-real.png" alt="KCTEC Logo" style="width: 130%; height: 130%; object-fit: cover; object-position: center center;"></div>
+                <div class="logo-icon" style="width: 48px; height: 48px; border-radius: 50%; overflow: hidden; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); flex-shrink: 0; display: flex; align-items: center; justify-content: center;"><img src="images/kctec-logo-real.png" alt="KCTEC Logo" style="width: 130%; height: 130%; object-fit: cover; object-position: 58% 42%;"></div>
                 <div class="logo-text">
                     <h1>韩中经贸交流中心</h1>
                     <p><span class="logo-kr">한중경제무역교류센터</span>KCTEC</p>
@@ -30,7 +29,7 @@
                 <li><a href="events.html">경제활동<small>经贸活动 / Events</small></a></li>
                 <li><a href="contact.html" class="active">연락처<small>联系我们 / Contact</small></a></li>
             </ul>
-                </li>
+                
                 <li>
                     <a href="member.html">회원서비스<small>会员服务 / Membership</small></a>
                     <ul class="dropdown-menu">
@@ -55,7 +54,7 @@
                     </ul>
                 </li>
                 <li><a href="contact.html" class="active">연락처<small>联系我们 / Contact</small></a></li>
-            </ul><button class="theme-toggle" id="themeToggle" aria-label="切换主题">🌙</button><button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="theme-toggle" id="themeToggle" aria-label="切换主题" title="政务模式（点击切换）">🏛️</button><button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -149,7 +148,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">姓名 / 성명 / Name <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" required placeholder="请输入您的姓名 / 성명 입력 / Enter your name">
+                                <input type="text" id="name" name="name" required="" placeholder="请输入您的姓名 / 성명 입력 / Enter your name">
                             </div>
                             <div class="form-group">
                                 <label for="company">公司 / 회사명 / Company</label>
@@ -159,7 +158,7 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">电话 / 전화번호 / Phone <span class="required">*</span></label>
-                                <input type="tel" id="phone" name="phone" required placeholder="请输入联系电话 / 전화번호 입력 / Enter phone number">
+                                <input type="tel" id="phone" name="phone" required="" placeholder="请输入联系电话 / 전화번호 입력 / Enter phone number">
                             </div>
                             <div class="form-group">
                                 <label for="email">邮箱 / 이메일 / Email</label>
@@ -168,7 +167,7 @@
                         </div>
                         <div class="form-group">
                             <label for="type">咨询类型 / 문의유형 / Inquiry Type <span class="required">*</span></label>
-                            <select id="type" name="type" required>
+                            <select id="type" name="type" required="">
                                 <option value="">请选择咨询类型 / 문의유형을 선택하세요 / Select type</option>
                                 <option value="membership">会员申请 / 회원가입 / Membership</option>
                                 <option value="event">活动参与 / 활동참가 / Event Participation</option>
@@ -180,7 +179,7 @@
                         </div>
                         <div class="form-group">
                             <label for="message">咨询内容 / 문의내용 / Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" required placeholder="请详细描述您的需求或问题... / 문의하실 내용을 자세히 적어주세요... / Please describe your needs or questions..."></textarea>
+                            <textarea id="message" name="message" required="" placeholder="请详细描述您的需求或问题... / 문의하실 내용을 자세히 적어주세요... / Please describe your needs or questions..."></textarea>
                         </div>
                         <button type="submit" class="btn-submit">提交咨询 / 문의 제출 / Submit</button>
                         <div class="form-message" id="formMessage"></div>
@@ -336,14 +335,26 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 韩中经贸交流中心 / 한중경제무역교류센터. All Rights Reserved.</p>
+                <p>© 2026 韩中经贸交流中心 / 한중경제무역교류센터. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div></body></html>
 
 
 
