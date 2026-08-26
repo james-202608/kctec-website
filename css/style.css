@@ -5973,8 +5973,8 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 @media (max-width: 768px) {
     .hero {
         min-height: auto !important;
-        padding: 24px 0 30px !important;
-        background: linear-gradient(180deg, #312e81 0%, #4c1d95 12%, rgba(76, 29, 149, 0.7) 22%, rgba(76, 29, 149, 0.3) 35%, rgba(76, 29, 149, 0.08) 50%, #f8fafc 65%, #f8fafc 100%) !important;
+        padding: 20px 0 20px !important;
+        background: linear-gradient(180deg, #312e81 0%, #4c1d95 8%, rgba(76, 29, 149, 0.85) 14%, rgba(76, 29, 149, 0.5) 20%, rgba(76, 29, 149, 0.2) 26%, rgba(76, 29, 149, 0.06) 32%, #f8fafc 38%, #f8fafc 100%) !important;
         overflow: hidden !important;
     }
     .hero-noise,
@@ -5993,32 +5993,42 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
         display: none !important;
     }
     .hero h1 {
-        font-size: 1.4rem !important;
-        margin: 8px 0 6px 0 !important;
+        font-size: 1.25rem !important;
+        margin: 6px 0 4px 0 !important;
     }
     .hero-desc {
-        font-size: 0.8rem !important;
-        margin-bottom: 12px !important;
+        font-size: 0.78rem !important;
+        margin-bottom: 10px !important;
     }
     .hero-badge {
-        font-size: 0.7rem !important;
-        margin-bottom: 0.6rem !important;
+        font-size: 0.68rem !important;
+        margin-bottom: 0.5rem !important;
     }
     .hero-buttons .btn {
-        padding: 8px 18px !important;
-        font-size: 0.8rem !important;
+        padding: 7px 16px !important;
+        font-size: 0.78rem !important;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        padding: 20px 0 10px !important;
+        padding: 16px 0 16px !important;
+        background: linear-gradient(180deg, #312e81 0%, #4c1d95 10%, rgba(76, 29, 149, 0.8) 16%, rgba(76, 29, 149, 0.45) 22%, rgba(76, 29, 149, 0.15) 28%, rgba(76, 29, 149, 0.04) 34%, #f8fafc 40%, #f8fafc 100%) !important;
     }
     .hero h1 {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
+        margin: 6px 0 4px 0 !important;
     }
     .hero-desc {
+        font-size: 0.7rem !important;
+        margin-bottom: 8px !important;
+    }
+    .hero-badge {
+        font-size: 0.65rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .hero-buttons .btn {
+        padding: 6px 14px !important;
         font-size: 0.75rem !important;
-        margin-bottom: 10px !important;
     }
 }
