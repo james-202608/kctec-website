@@ -6018,7 +6018,12 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     .section {
         padding: 40px 0 !important;
     }
-    .section:first-of-type {
+    body > section:nth-of-type(1),
+    main > section:nth-of-type(1),
+    .hero + .section {
+        padding-top: 24px !important;
+    }
+    #news.section {
         padding-top: 24px !important;
     }
     .section-title {
@@ -6056,7 +6061,10 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     .section {
         padding: 32px 0 !important;
     }
-    .section:first-of-type {
+    body > section:nth-of-type(1),
+    main > section:nth-of-type(1),
+    .hero + .section,
+    #news.section {
         padding-top: 16px !important;
     }
     .section-title {
