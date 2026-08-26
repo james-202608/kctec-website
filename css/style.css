@@ -1501,7 +1501,7 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 90px 0 100px;
+    padding: 50px 0 60px;
 }
 
 /* Hero 背景渐变光晕 */
@@ -1614,7 +1614,7 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 120px;
+    height: 60px;
 }
 
 .hero .container {
@@ -1703,10 +1703,10 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 }
 
 .hero-compact-text h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 900;
     line-height: 1.2;
-    margin: 15px 0 12px 0;
+    margin: 12px 0 10px 0;
     color: white;
 }
 
@@ -1718,16 +1718,16 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 }
 
 .hero-compact-text .hero-desc {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.7;
-    margin-bottom: 24px;
+    line-height: 1.6;
+    margin-bottom: 18px;
 }
 
 .hero-compact-visual .hero-photo-main {
     width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 20px;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
     border: 1px solid rgba(255,255,255,0.15);
@@ -1743,18 +1743,18 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 }
 
 .hero-compact-visual .photo-icon {
-    font-size: 4rem;
-    margin-bottom: 16px;
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .hero-compact-visual .photo-label {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .hero-compact-visual .photo-sub {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     opacity: 0.75;
 }
 
