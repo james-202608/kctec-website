@@ -5973,9 +5973,13 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 @media (max-width: 768px) {
     .hero {
         min-height: auto !important;
-        padding: 20px 0 20px !important;
-        background: linear-gradient(180deg, #312e81 0%, #4c1d95 8%, rgba(76, 29, 149, 0.85) 14%, rgba(76, 29, 149, 0.5) 20%, rgba(76, 29, 149, 0.2) 26%, rgba(76, 29, 149, 0.06) 32%, #f8fafc 38%, #f8fafc 100%) !important;
+        padding: 16px 0 24px !important;
+        background: linear-gradient(180deg, #6d28d9 0%, #7c3aed 6%, #8b5cf6 12%, rgba(139, 92, 246, 0.7) 18%, rgba(139, 92, 246, 0.4) 24%, rgba(167, 139, 250, 0.2) 30%, rgba(196, 181, 253, 0.08) 36%, #f8fafc 42%, #f8fafc 100%) !important;
         overflow: hidden !important;
+        align-items: flex-start !important;
+    }
+    .hero .container {
+        align-self: flex-start !important;
     }
     .hero-noise,
     .hero-decoration,
@@ -6012,8 +6016,9 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 16px 0 16px !important;
-        background: linear-gradient(180deg, #312e81 0%, #4c1d95 10%, rgba(76, 29, 149, 0.8) 16%, rgba(76, 29, 149, 0.45) 22%, rgba(76, 29, 149, 0.15) 28%, rgba(76, 29, 149, 0.04) 34%, #f8fafc 40%, #f8fafc 100%) !important;
+        padding: 12px 0 20px !important;
+        background: linear-gradient(180deg, #7c3aed 0%, #8b5cf6 8%, #a78bfa 14%, rgba(167, 139, 250, 0.7) 20%, rgba(167, 139, 250, 0.4) 26%, rgba(196, 181, 253, 0.2) 32%, rgba(221, 214, 254, 0.08) 38%, #f8fafc 44%, #f8fafc 100%) !important;
+        align-items: flex-start !important;
     }
     .hero h1 {
         font-size: 1.1rem !important;
