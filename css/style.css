@@ -5400,3 +5400,82 @@ img {
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
+
+/* ===== 协会活动照片画廊 ===== */
+.gallery-section {
+    padding: 60px 0;
+}
+.gallery-category {
+    margin-bottom: 48px;
+}
+.gallery-category-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.gallery-category-title span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: var(--bg-soft);
+    transition: transform 0.3s var(--ease-standard), box-shadow 0.3s var(--ease-standard);
+}
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-standard);
+}
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+.gallery-item-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 12px 12px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-standard);
+}
+.gallery-item:hover .gallery-item-caption {
+    opacity: 1;
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 10px;
+    }
+    .gallery-item-caption {
+        opacity: 1;
+        font-size: 0.75rem;
+        padding: 16px 8px 8px;
+    }
+}
+
