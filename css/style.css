@@ -4083,7 +4083,21 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     font-size: 0.75rem;
     color: var(--text-muted);
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.province-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+    font-weight: 500;
+}
+
+.province-desc .ko {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 400;
 }
 
 .province-info {
@@ -4909,7 +4923,8 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     
     .hero {
         min-height: auto;
-        padding: 80px 0 100px;
+        padding: 60px 0 70px;
+        background: linear-gradient(160deg, #1e1b4b 0%, #312e81 45%, #4c1d95 80%, #5b21b6 100%);
     }
     
     .hero h1 {
@@ -5262,8 +5277,9 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     }
     
     .hero {
-        padding: 70px 0 90px;
+        padding: 50px 0 60px;
         min-height: auto;
+        background: linear-gradient(160deg, #1e1b4b 0%, #312e81 40%, #4c1d95 70%, #5b21b6 100%);
     }
     
     .hero h1 {
