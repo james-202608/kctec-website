@@ -1495,13 +1495,13 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
 /* ===== Hero 横幅 - 精致版 ===== */
 .hero {
     position: relative;
-    min-height: 680px;
-    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #4c1d95 60%, #5b21b6 100%);
+    min-height: auto;
+    background: linear-gradient(160deg, #1e1b4b 0%, #312e81 40%, #4c1d95 70%, #5b21b6 100%);
     color: white;
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding: 140px 0 160px;
+    padding: 90px 0 100px;
 }
 
 /* Hero 背景渐变光晕 */
@@ -1692,6 +1692,103 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     opacity: 0.85;
     font-weight: 400;
     max-width: 540px;
+}
+
+/* Hero 紧凑布局 */
+.hero-compact {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.hero-compact-text h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 15px 0 12px 0;
+    color: white;
+}
+
+.hero-compact-text .highlight {
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-compact-text .hero-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.hero-compact-visual .hero-photo-main {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-compact-visual .photo-placeholder {
+    text-align: center;
+    color: white;
+}
+
+.hero-compact-visual .photo-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.hero-compact-visual .photo-label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.hero-compact-visual .photo-sub {
+    font-size: 0.95rem;
+    opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+    .hero-compact {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .hero-compact-text h1 {
+        font-size: 1.8rem;
+    }
+    .hero-compact-text .hero-desc {
+        font-size: 0.9rem;
+    }
+    .hero-compact-visual .hero-photo-main {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .hero-compact-text .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-compact-text h1 {
+        font-size: 1.4rem;
+    }
+    .hero-compact-visual .photo-icon {
+        font-size: 3rem;
+    }
+    .hero-compact-visual .photo-label {
+        font-size: 1.1rem;
+    }
 }
 
 /* Hero 左右分栏布局 */
