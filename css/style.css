@@ -762,8 +762,17 @@ img {
 
 .logo-text p .logo-kr {
     color: #c4b5fd;
-    font-weight: 700;
+    font-weight: 800;
     margin-right: 5px;
+}
+
+/* 韩文标题字体加粗，匹配中文视觉重量 */
+.kr-title {
+    font-weight: 800;
+}
+
+h2 .kr-title, h3 .kr-title, h4 .kr-title {
+    font-weight: 900;
 }
 
 /* 滚动后导航栏变白，文字变回深色 */
