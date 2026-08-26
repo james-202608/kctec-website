@@ -1,4 +1,4 @@
-/* ===== 韩中经贸交流中心 - 设计系统 Design Tokens ===== */
+﻿/* ===== 韩中经贸交流中心 - 设计系统 Design Tokens ===== */
 
 * {
     margin: 0;
@@ -4728,10 +4728,11 @@ img {
     }
     
     .logo-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 1rem;
-        border-radius: 14px;
+        font-size: 1.4rem;
+        width: auto;
+        height: auto;
+        background: none;
+        border-radius: 0;
     }
     
     .logo-text h1 {
@@ -4793,6 +4794,15 @@ img {
     
     .hero-desc {
         font-size: 1rem;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-visual {
+        display: none;
     }
     
     .stats-grid {
@@ -5101,10 +5111,11 @@ img {
     }
     
     .logo-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
-        border-radius: 12px;
+        font-size: 1.2rem;
+        width: auto;
+        height: auto;
+        background: none;
+        border-radius: 0;
     }
     
     .logo-text h1 {
@@ -5667,4 +5678,5 @@ img {
         font-size: 0.9rem;
     }
 }
+
 
