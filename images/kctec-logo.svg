@@ -1,82 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D4AF37"/>
-      <stop offset="50%" style="stop-color:#F5DEB3"/>
-      <stop offset="100%" style="stop-color:#D4AF37"/>
+      <stop offset="0%" style="stop-color:#E8C872"/>
+      <stop offset="50%" style="stop-color:#F5E6A8"/>
+      <stop offset="100%" style="stop-color:#C9A227"/>
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e7a"/>
+      <stop offset="100%" style="stop-color:#1a2a5e"/>
     </linearGradient>
   </defs>
-  
-  <!-- 外圈深蓝色 -->
-  <circle cx="100" cy="100" r="96" fill="#1a2a5e" stroke="#1a2a5e" stroke-width="2"/>
-  
-  <!-- 金色装饰环 -->
-  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#goldGrad)" stroke-width="2"/>
-  <circle cx="100" cy="100" r="82" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
-  
+
+  <!-- 最外细环（金色） -->
+  <circle cx="100" cy="100" r="97" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+
+  <!-- 外圈（深蓝色，细边） -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#2c3e7a" stroke-width="2"/>
+
   <!-- 内圈白色背景 -->
-  <circle cx="100" cy="100" r="76" fill="#ffffff"/>
-  
+  <circle cx="100" cy="100" r="90" fill="#ffffff"/>
+
+  <!-- 内装饰细金环 -->
+  <circle cx="100" cy="100" r="84" fill="none" stroke="url(#goldGrad)" stroke-width="0.8"/>
+
   <!-- 顶部英文 KOREA-CHINA -->
-  <text x="100" y="42" text-anchor="middle" font-family="'Noto Sans SC', sans-serif" font-size="14" font-weight="800" fill="#1a2a5e" letter-spacing="1">KOREA-CHINA</text>
-  
-  <!-- 底部英文 Economic and Trade Exchange Center -->
-  <text x="100" y="172" text-anchor="middle" font-family="'Noto Sans SC', sans-serif" font-size="9.5" font-weight="600" fill="#1a2a5e" letter-spacing="0.5">Economic &amp; Trade Exchange Center</text>
-  
-  <!-- 中心地球图案 -->
-  <ellipse cx="100" cy="88" rx="30" ry="22" fill="none" stroke="#1a2a5e" stroke-width="1.5"/>
-  <path d="M70 88 Q100 70 130 88" fill="none" stroke="#1a2a5e" stroke-width="1"/>
-  <path d="M70 88 Q100 106 130 88" fill="none" stroke="#1a2a5e" stroke-width="1"/>
-  <line x1="100" y1="66" x2="100" y2="110" stroke="#1a2a5e" stroke-width="1"/>
-  <line x1="78" y1="74" x2="78" y2="102" stroke="#1a2a5e" stroke-width="0.8"/>
-  <line x1="122" y1="74" x2="122" y2="102" stroke="#1a2a5e" stroke-width="0.8"/>
-  
-  <!-- 左侧韩国国旗元素（太极+卦） -->
-  <circle cx="58" cy="95" r="10" fill="none"/>
-  <path d="M58 85 A10 10 0 0 1 58 105 A5 5 0 0 1 58 95 A5 5 0 0 0 58 85" fill="#c8102e"/>
-  <path d="M58 85 A10 10 0 0 0 58 105 A5 5 0 0 0 58 95 A5 5 0 0 1 58 85" fill="#003478"/>
-  <!-- 乾坤卦 -->
-  <g transform="translate(50, 68)">
-    <rect x="0" y="0" width="16" height="2" fill="#1a2a5e"/>
-    <rect x="0" y="4" width="7" height="2" fill="#1a2a5e"/>
-    <rect x="9" y="4" width="7" height="2" fill="#1a2a5e"/>
-    <rect x="0" y="8" width="16" height="2" fill="#1a2a5e"/>
+  <text x="100" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#2c3e7a" letter-spacing="2">KOREA-CHINA</text>
+
+  <!-- 底部英文 -->
+  <text x="100" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5" font-weight="600" fill="#2c3e7a" letter-spacing="0.8">Economic &amp; Trade Exchange Center</text>
+
+  <!-- 中心地球（简化版，更清晰） -->
+  <circle cx="100" cy="88" r="22" fill="none" stroke="#2c3e7a" stroke-width="1.2"/>
+  <path d="M78 88 Q100 72 122 88" fill="none" stroke="#2c3e7a" stroke-width="0.9"/>
+  <path d="M78 88 Q100 104 122 88" fill="none" stroke="#2c3e7a" stroke-width="0.9"/>
+  <line x1="100" y1="66" x2="100" y2="110" stroke="#2c3e7a" stroke-width="0.9"/>
+  <line x1="84" y1="72" x2="84" y2="104" stroke="#2c3e7a" stroke-width="0.7"/>
+  <line x1="116" y1="72" x2="116" y2="104" stroke="#2c3e7a" stroke-width="0.7"/>
+
+  <!-- 左侧韩国太极（缩小，更精致） -->
+  <g transform="translate(52, 88) scale(0.75)">
+    <path d="M10 0 A10 10 0 0 1 10 20 A5 5 0 0 1 10 10 A5 5 0 0 0 10 0" fill="#c8102e"/>
+    <path d="M10 0 A10 10 0 0 0 10 20 A5 5 0 0 0 10 10 A5 5 0 0 1 10 0" fill="#2c3e7a"/>
   </g>
-  <g transform="translate(50, 118)">
-    <rect x="0" y="0" width="16" height="2" fill="#1a2a5e"/>
-    <rect x="0" y="4" width="16" height="2" fill="#1a2a5e"/>
-    <rect x="0" y="8" width="16" height="2" fill="#1a2a5e"/>
-  </g>
-  
-  <!-- 右侧中国国旗元素（红色+五星） -->
-  <path d="M115 65 Q150 70 152 100 Q150 130 115 135 Q130 100 115 65" fill="#de2910"/>
+
+  <!-- 右侧中国红弧（简化） -->
+  <path d="M125 68 Q148 72 150 98 Q148 124 125 128 Q138 98 125 68" fill="#de2910"/>
   <!-- 大星 -->
-  <polygon points="128,80 130,86 136,86 131,90 133,96 128,92 123,96 125,90 120,86 126,86" fill="#ffde00"/>
-  <!-- 小星 -->
-  <polygon points="140,75 141,78 144,78 142,80 143,83 140,81 137,83 138,80 136,78 139,78" fill="#ffde00"/>
-  <polygon points="143,90 144,93 147,93 145,95 146,98 143,96 140,98 141,95 139,93 142,93" fill="#ffde00"/>
-  <polygon points="141,105 142,108 145,108 143,110 144,113 141,111 138,113 139,110 137,108 140,108" fill="#ffde00"/>
-  
-  <!-- 底部建筑/经贸象征（三条柱状+橄榄叶） -->
-  <g transform="translate(78, 110)">
-    <rect x="10" y="18" width="8" height="20" fill="#1a2a5e"/>
-    <rect x="22" y="10" width="10" height="28" fill="url(#goldGrad)"/>
-    <rect x="36" y="20" width="7" height="18" fill="#b8941f"/>
+  <polygon points="134,82 136,88 142,88 137,92 139,98 134,94 129,98 131,92 126,88 132,88" fill="#ffde00"/>
+  <!-- 小星们 -->
+  <polygon points="144,76 145,78.5 147.5,78.5 145.5,80.5 146.5,83 144,81 141.5,83 142.5,80.5 140.5,78.5 143,78.5" fill="#ffde00"/>
+  <polygon points="146,92 147,94.5 149.5,94.5 147.5,96.5 148.5,99 146,97 143.5,99 144.5,96.5 142.5,94.5 145,94.5" fill="#ffde00"/>
+  <polygon points="143,106 144,108.5 146.5,108.5 144.5,110.5 145.5,113 143,111 140.5,113 141.5,110.5 139.5,108.5 142,108.5" fill="#ffde00"/>
+
+  <!-- 底部建筑（三条柱，更简洁） -->
+  <g transform="translate(80, 115)">
+    <rect x="8" y="15" width="7" height="18" fill="#2c3e7a"/>
+    <rect x="20" y="6" width="10" height="27" fill="url(#goldGrad)"/>
+    <rect x="35" y="17" width="6" height="16" fill="#C9A227"/>
   </g>
-  
-  <!-- 橄榄叶/稻穗装饰 -->
-  <g transform="translate(65, 120)">
-    <path d="M0 30 Q15 15 25 5" fill="none" stroke="#1a2a5e" stroke-width="2" stroke-linecap="round"/>
-    <ellipse cx="8" cy="22" rx="5" ry="2.5" fill="#1a2a5e" transform="rotate(-30 8 22)"/>
-    <ellipse cx="15" cy="15" rx="5" ry="2.5" fill="#1a2a5e" transform="rotate(-45 15 15)"/>
+
+  <!-- 橄榄叶（简化，更细） -->
+  <g transform="translate(68, 122)">
+    <path d="M0 25 Q12 12 22 3" fill="none" stroke="#2c3e7a" stroke-width="1.2" stroke-linecap="round"/>
+    <ellipse cx="6" cy="19" rx="4" ry="2" fill="#2c3e7a" transform="rotate(-30 6 19)"/>
+    <ellipse cx="13" cy="12" rx="4" ry="2" fill="#2c3e7a" transform="rotate(-45 13 12)"/>
   </g>
-  <g transform="translate(135, 120) scale(-1, 1)">
-    <path d="M0 30 Q15 15 25 5" fill="none" stroke="#b8941f" stroke-width="2" stroke-linecap="round"/>
-    <ellipse cx="8" cy="22" rx="5" ry="2.5" fill="#b8941f" transform="rotate(-30 8 22)"/>
-    <ellipse cx="15" cy="15" rx="5" ry="2.5" fill="#b8941f" transform="rotate(-45 15 15)"/>
+  <g transform="translate(132, 122) scale(-1, 1)">
+    <path d="M0 25 Q12 12 22 3" fill="none" stroke="#C9A227" stroke-width="1.2" stroke-linecap="round"/>
+    <ellipse cx="6" cy="19" rx="4" ry="2" fill="#C9A227" transform="rotate(-30 6 19)"/>
+    <ellipse cx="13" cy="12" rx="4" ry="2" fill="#C9A227" transform="rotate(-45 13 12)"/>
   </g>
-  
-  <!-- 两侧装饰点 -->
-  <circle cx="32" cy="100" r="4" fill="#1a2a5e"/>
-  <circle cx="168" cy="100" r="4" fill="#D4AF37"/>
+
+  <!-- 两侧装饰小点 -->
+  <circle cx="30" cy="100" r="2.5" fill="#2c3e7a"/>
+  <circle cx="170" cy="100" r="2.5" fill="#C9A227"/>
 </svg>

@@ -3426,6 +3426,8 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     font-size: 0.9rem;
     transition: var(--transition);
     display: inline-block;
+    word-break: keep-all;
+    white-space: nowrap;
 }
 
 .footer-links a:hover {
@@ -4713,8 +4715,8 @@ h2 .kr-title, h3 .kr-title, h4 .kr-title {
     }
     
     .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
     
     .stats-grid {
