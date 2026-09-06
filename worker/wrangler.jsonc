@@ -13,7 +13,6 @@
   ],
   "vars": {
     "ALLOWED_ORIGIN": "https://kctec.com.kr",
-    "COOKIE_DOMAIN": ".kctec.com.kr",
     "DEEPSEEK_MODEL": "deepseek-v4-flash"
   }
 }
