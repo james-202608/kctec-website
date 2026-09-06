@@ -28,3 +28,32 @@
 @media(max-width:560px){.news-head-actions,.member-news-bar,.pref-actions{align-items:flex-start;flex-direction:column}.pref-card{grid-template-columns:1fr}.pref-intro,.pref-actions{grid-column:auto}.news-head-actions{gap:10px}.member-news-bar{padding:22px 18px}}
 .site-locale{border:1px solid #cfd8e0;border-radius:999px;padding:8px 12px!important;font-size:12px!important;white-space:nowrap}.site-locale small{display:block!important;text-align:center;font-size:9px!important;color:#768392}.article-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}.article-actions button{border:1px solid #d7e0e7;background:#fff;padding:8px 10px;cursor:pointer;font-size:12px}.article-actions button.active{background:#edf5fb;border-color:#1763a8;color:#125494}.article-ai{display:none;margin-top:12px;padding:14px;background:#eef4f8}.article-ai.open{display:block}.article-ai textarea{width:100%;min-height:76px;padding:10px;border:1px solid #c9d5df;font:inherit}.article-ai button{border:0;background:#1763a8;color:#fff;padding:9px 14px;margin-top:8px}
 @media(max-width:850px){.site-locale{margin-left:auto}.nav-links.open+.site-locale{position:absolute;right:72px;top:19px}}
+
+/* ===== 2026-09 News image fidelity and title rhythm ===== */
+.front-photo,.korea-focus-photo,.media-thumb,.lead-image{background:#edf1f5}
+.front-photo img,.korea-focus-photo img,.media-thumb img,.lead-image img,.cn-market-card img{
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none!important;
+}
+.front-story:hover img,.korea-focus-card:hover img,.media-card:hover .media-thumb img{transform:none!important}
+.front-story-copy h3,.front-story-copy h4,
+.korea-focus-copy h3,.korea-focus-copy h4{
+  font-family:"Noto Sans SC","Malgun Gothic",system-ui,sans-serif;
+  font-weight:700;
+  line-height:1.45;
+}
+.front-story-copy h3,.front-story-copy h4{font-size:20px}
+.front-lead .front-story-copy h3,.front-lead .front-story-copy h4{font-size:26px}
+.korea-focus-copy h3,.korea-focus-copy h4{font-size:20px}
+.korea-focus-card.lead .korea-focus-copy h3,.korea-focus-card.lead .korea-focus-copy h4{font-size:27px}
+.media-card h3,.media-content .news-title-kr{font-size:20px;line-height:1.45}
+.front-news-head h2>span{display:block;font-size:1em;line-height:inherit}
+@media(max-width:560px){
+  .front-story-copy h3,.front-story-copy h4,
+  .front-lead .front-story-copy h3,.front-lead .front-story-copy h4,
+  .korea-focus-copy h3,.korea-focus-copy h4,
+  .korea-focus-card.lead .korea-focus-copy h3,.korea-focus-card.lead .korea-focus-copy h4{
+    font-size:21px;
+  }
+}
