@@ -12,7 +12,7 @@
     }
   ],
   "vars": {
-    "ALLOWED_ORIGIN": "https://kctec.com.kr",
+    "ALLOWED_ORIGIN": "https://james-202608.github.io",
     "DEEPSEEK_MODEL": "deepseek-v4-flash"
   }
 }
