@@ -2,7 +2,7 @@
 (function(){
   document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="bilingual.css">');
   const page=location.pathname.split('/').pop()||'index.html';
-  const links=[['index.html','首页','홈'],['opportunities.html','韩中商机','한중 비즈니스'],['enterprise.html','交流足迹','교류 발자취'],['association-news.html','中心新闻','센터 소식'],['external-news.html','韩中资讯','한중 뉴스'],['today-in-history.html','关系里程碑','한중 관계사']];
+  const links=[['index.html','首页','홈'],['opportunities.html','韩中商机','한중 비즈니스'],['business-profile.html','企业画像','기업 프로필'],['enterprise.html','交流足迹','교류 발자취'],['association-news.html','中心新闻','센터 소식'],['external-news.html','韩中资讯','한중 뉴스'],['today-in-history.html','关系里程碑','한중 관계사']];
   const header=`<header class="site-header"><nav class="nav shell"><a class="brand" href="index.html"><img src="./logo.png" alt="KCTEC标志"><span><strong>한중경제무역교류센터</strong><small>KCTEC · 韩中经贸交流中心</small></span></a><div class="nav-links">${links.map(x=>`<a class="${page===x[0]?'active':''}" href="${x[0]}"><b>${x[2]}</b><small>${x[1]}</small></a>`).join('')}</div><a class="site-locale" href="korean.html">한국어판 <small>韩文版</small></a><button class="menu-btn" aria-label="打开导航">☰</button></nav></header>`;
   const footer=`<footer class="footer"><div class="shell"><div class="footer-grid"><div><h3>한중경제무역교류센터</h3><p class="footer-cn">韩中经贸交流中心</p><p>한중 경제협력의 가교가 되어 기업 교류와 장기적인 파트너십을 촉진합니다.</p><p>搭建韩中经贸合作桥梁，促进企业交流、项目合作与长期伙伴关系。</p></div><div><h3>연락처 · 联系方式</h3><p>서울특별시 강남구 논현로 507<br>6층 14호</p><p>contact@kctec.cn<br>cjl05088@163.com</p></div><div><h3>바로가기 · 快速导航</h3>${links.map(x=>`<p><a href="${x[0]}">${x[2]} · ${x[1]}</a></p>`).join('')}</div></div><div class="copyright">© 2026 KCTEC 한중경제무역교류센터 · 韩中经贸交流中心</div></div></footer><div class="modal" id="imageModal"><button aria-label="关闭">×</button><img alt="活动图片大图"></div>`;
   document.body.insertAdjacentHTML('afterbegin',header);document.body.insertAdjacentHTML('beforeend',footer);
@@ -15,7 +15,7 @@
   document.querySelector('.menu-btn').onclick=()=>document.querySelector('.nav-links').classList.toggle('open');
   const modal=document.getElementById('imageModal');document.addEventListener('click',e=>{const img=e.target.closest('[data-lightbox]');if(img){modal.querySelector('img').src=img.src;modal.classList.add('open')}if(e.target===modal||e.target===modal.querySelector('button'))modal.classList.remove('open')});
   const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  const accountScript=document.createElement('script');accountScript.src='account.js';document.body.appendChild(accountScript);
+  const accountScript=document.createElement('script');accountScript.src='account.js';document.body.appendChild(accountScript);const aiStyle=document.createElement('link');aiStyle.rel='stylesheet';aiStyle.href='business-assistant.css';document.head.appendChild(aiStyle);const aiScript=document.createElement('script');aiScript.src='business-assistant.js';document.body.appendChild(aiScript);
 })();
 
 // 会员新闻偏好：韩中关系为固定频道，其余频道由会员选择。

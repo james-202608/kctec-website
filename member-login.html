@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>会员邀请登录｜KCTEC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <main>
+    <section class="profile-hero"><div class="shell"><span>MEMBER ACCESS · 회원 접속</span><h1>会员邀请登录</h1><p>使用韩中经贸交流中心提供的一次性邀请，进入您的专属商务助理。</p></div></section>
+    <section class="profile-body">
+      <form class="shell invite-form" id="inviteForm">
+        <label>邀请代码<input name="invite" autocomplete="one-time-code" minlength="32" required></label>
+        <button type="submit">确认并进入</button>
+        <output role="status" aria-live="polite"></output>
+        <small>邀请代码只使用一次。登录成功后，系统会在安全Cookie中保存会员身份，不会把代码写进聊天记录。</small>
+      </form>
+    </section>
+  </main>
+  <script src="common.js"></script>
+  <script src="member-login.js"></script>
+</body>
+</html>

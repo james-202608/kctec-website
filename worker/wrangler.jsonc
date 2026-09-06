@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kctec-website",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kctec-ai",
+      "database_id": "f439c98b-caea-46f0-83ad-284c9ab1cc0c",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGIN": "https://kctec.com.kr",
+    "DEEPSEEK_MODEL": "deepseek-v4-flash"
+  }
+}
