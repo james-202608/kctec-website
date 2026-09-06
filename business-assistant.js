@@ -30,8 +30,8 @@
       <fieldset class="ai-consent">
         <legend>聊天数据设置</legend>
         <label><input type="checkbox" name="save-history"> 保存这次对话，供本人查询，并帮助协会改进服务</label>
-        <label><input type="checkbox" name="staff-followup" disabled> 允许协会工作人员查看本次对话并联系我跟进</label>
-        <small>不勾选“保存”时，协会不建立聊天历史。工作人员跟进需要单独授权。敏感商业秘密请勿直接提交。</small>
+        <label><input type="checkbox" name="staff-followup" disabled> 允许协会工作人员根据本次对话联系我跟进</label>
+        <small>保存的对话可供协会授权人员进行内部汇总和服务改进；主动联系跟进需要单独授权。敏感商业秘密请勿直接提交。</small>
         <a href="ai-data-policy.html">查看聊天数据说明</a>
       </fieldset>
       <button class="ai-run" type="button">${endpoint ? '开始分析' : 'AI 服务配置中'}</button>
@@ -46,6 +46,7 @@
   const run = desk.querySelector('.ai-run');
   const result = desk.querySelector('.ai-result');
   let mode = 'translate';
+  let currentSessionId = null;
 
   launcher.addEventListener('click', () => {
     desk.classList.add('open');
@@ -92,13 +93,34 @@
         body: JSON.stringify({
           task: mode,
           message,
+          sessionId: currentSessionId,
           saveHistory: saveHistory.checked,
           allowStaffFollowup: staffFollowup.checked
         })
       });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || '服务暂时不可用');
-      result.innerHTML = `<b>${tasks[mode]}</b><p>${escapeHtml(data.answer)}</p>${data.saved ? '<small>本次对话已按您的选择保存。</small>' : '<small>本次对话未保存为历史记录。</small>'}`;
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        if (response.status === 401) {
+          result.innerHTML = '<b>请先登录会员账号</b><p>协会为每位客户建立独立身份和会话，登录后才能使用专属商务助理。</p><a href="member-login.html">使用邀请代码登录</a>';
+          return;
+        }
+        throw new Error(data.error || '服务暂时不可用');
+      }
+      result.innerHTML = `<b>${tasks[mode]}</b><p class="ai-answer-text"></p><small class="ai-save-state"></small>`;
+      const answer = result.querySelector('.ai-answer-text');
+      const saveState = result.querySelector('.ai-save-state');
+      await readEventStream(response, (event, data) => {
+        if (event === 'meta') {
+          currentSessionId = data.sessionId || currentSessionId;
+          saveState.textContent = data.saved ? '本次对话将按您的选择保存。' : '本次对话不会保存为历史记录。';
+        } else if (event === 'delta') {
+          answer.textContent += data.text || '';
+        } else if (event === 'done') {
+          saveState.textContent = data.saved ? '本次对话已保存。' : '本次对话未保存。';
+        } else if (event === 'error') {
+          throw new Error(data.error || '回复中断');
+        }
+      });
     } catch (error) {
       result.innerHTML = `<b>暂时无法完成</b><p>${escapeHtml(error.message)}</p>`;
     } finally {
@@ -111,5 +133,29 @@
     return String(value || '').replace(/[&<>"']/g, (character) => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     })[character]);
+  }
+
+  async function readEventStream(response, onEvent) {
+    if (!response.body) throw new Error('浏览器不支持流式回复');
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, {stream: true}).replace(/\r\n/g, '\n');
+      const blocks = buffer.split('\n\n');
+      buffer = blocks.pop() || '';
+      for (const block of blocks) {
+        let event = 'message';
+        const dataLines = [];
+        for (const line of block.split('\n')) {
+          if (line.startsWith('event:')) event = line.slice(6).trim();
+          if (line.startsWith('data:')) dataLines.push(line.slice(5).trim());
+        }
+        if (!dataLines.length) continue;
+        onEvent(event, JSON.parse(dataLines.join('\n')));
+      }
+    }
   }
 })();
