@@ -1,0 +1,26 @@
+// 公共导航、页脚与交互逻辑。
+(function(){
+  document.head.insertAdjacentHTML('beforeend','<link rel="stylesheet" href="bilingual.css">');
+  const page=location.pathname.split('/').pop()||'index.html';
+  const links=[['index.html','首页','홈'],['enterprise.html','交流足迹','교류 발자취'],['association-news.html','中心新闻','센터 소식'],['external-news.html','韩中资讯','한중 뉴스'],['today-in-history.html','关系里程碑','한중 관계사']];
+  const header=`<header class="site-header"><nav class="nav shell"><a class="brand" href="index.html"><img src="./images/logo.png" alt="KCTEC标志"><span><strong>한중경제무역교류센터</strong><small>KCTEC · 韩中经贸交流中心</small></span></a><div class="nav-links">${links.map(x=>`<a class="${page===x[0]?'active':''}" href="${x[0]}"><b>${x[2]}</b><small>${x[1]}</small></a>`).join('')}</div><a class="site-locale" href="ko-kr/">한국어판 <small>韩文版</small></a><button class="menu-btn" aria-label="打开导航">☰</button></nav></header>`;
+  const footer=`<footer class="footer"><div class="shell"><div class="footer-grid"><div><h3>한중경제무역교류센터</h3><p class="footer-cn">韩中经贸交流中心</p><p>한중 경제협력의 가교가 되어 기업 교류와 장기적인 파트너십을 촉진합니다.</p><p>搭建韩中经贸合作桥梁，促进企业交流、项目合作与长期伙伴关系。</p></div><div><h3>연락처 · 联系方式</h3><p>서울특별시 강남구 논현로 507<br>6층 14호</p><p>contact@kctec.cn<br>cjl05088@163.com</p></div><div><h3>바로가기 · 快速导航</h3>${links.map(x=>`<p><a href="${x[0]}">${x[2]} · ${x[1]}</a></p>`).join('')}</div></div><div class="copyright">© 2026 KCTEC 한중경제무역교류센터 · 韩中经贸交流中心</div></div></footer><div class="modal" id="imageModal"><button aria-label="关闭">×</button><img alt="活动图片大图"></div>`;
+  document.body.insertAdjacentHTML('afterbegin',header);document.body.insertAdjacentHTML('beforeend',footer);
+  const pageTitles={'association-news.html':['센터 소식','KCTEC NEWS · 서울에서 전하는 소식'],'enterprise.html':['교류의 발자취','ACTIVITY ARCHIVE · 한중 교류 기록'],'today-in-history.html':['한중 관계의 이정표','RELATIONSHIP MILESTONES · 한중 관계사']};
+  if(pageTitles[page]){const hero=document.querySelector('.page-hero');const h1=hero?.querySelector('h1');const eye=hero?.querySelector('.eyebrow');if(h1&&!h1.querySelector('[lang="ko"]'))h1.insertAdjacentHTML('afterbegin',`<span lang="ko">${pageTitles[page][0]}</span>`);if(eye)eye.textContent=pageTitles[page][1]}
+  if(page==='enterprise.html'){const names=[['전체','全部'],['기업 협력','企业合作'],['문화 교류','文化交流'],['축구 우정','足球友谊']];document.querySelectorAll('.filter').forEach((b,i)=>b.textContent=`${names[i][0]} · ${names[i][1]}`)}
+  if(page==='index.html'){const services=['경제무역 매칭','정책·법률 자문','전시·박람회','교육·연수','비즈니스 시찰','번역·통역'];document.querySelectorAll('.service h3').forEach((h,i)=>h.insertAdjacentHTML('afterbegin',`<span lang="ko">${services[i]}</span>`));const tools=['센터 소식','한중 기술 뉴스','협력·교류 기록'];document.querySelectorAll('.hero-tools b').forEach((b,i)=>b.insertAdjacentHTML('afterbegin',`<span lang="ko">${tools[i]}</span>`))}
+  document.querySelector('.menu-btn').onclick=()=>document.querySelector('.nav-links').classList.toggle('open');
+  const modal=document.getElementById('imageModal');document.addEventListener('click',e=>{const img=e.target.closest('[data-lightbox]');if(img){modal.querySelector('img').src=img.src;modal.classList.add('open')}if(e.target===modal||e.target===modal.querySelector('button'))modal.classList.remove('open')});
+  const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+// 会员新闻偏好：韩中关系为固定频道，其余频道由会员选择。
+window.KCTEC_NEWS_PREFS={
+  fixed:'cooperation',
+  options:[['china-tech','中国重大技术突破','중국 주요 기술 돌파'],['korea-tech','韩国重大技术突破','한국 주요 기술 돌파'],['semiconductor','半导体与AI','반도체·AI'],['health','医药健康','바이오·헬스'],['trade-policy','经贸政策','경제무역 정책'],['investment','投资与项目','투자·프로젝트'],['food','食品与消费','식품·소비재'],['culture-sports','文化与体育','문화·스포츠']],
+  load(){try{const v=JSON.parse(localStorage.getItem('kctec-news-prefs'));return Array.isArray(v)?v:null}catch(e){return null}},
+  save(v){localStorage.setItem('kctec-news-prefs',JSON.stringify(v));window.dispatchEvent(new CustomEvent('kctec-prefs-changed',{detail:v}))},
+  channels(){const saved=this.load();return [this.fixed,...(saved===null?['china-tech','korea-tech']:saved)]},
+  render(target,onSave){const host=typeof target==='string'?document.querySelector(target):target;if(!host)return;const saved=this.load(),selected=saved===null?['china-tech','korea-tech']:saved;host.innerHTML=`<div class="pref-card"><div class="pref-intro"><span>MY NEWS · 나의 뉴스</span><h3>选择我关心的新闻</h3><p>“韩中关系”是每位会员的固定频道，其他内容由你决定。</p></div><div class="pref-choice fixed"><i>✓</i><b>韩中关系<small>한중 관계 · 固定显示</small></b><em>必看</em></div>${this.options.map(x=>`<label class="pref-choice"><input type="checkbox" value="${x[0]}" ${selected.includes(x[0])?'checked':''}><i></i><b>${x[1]}<small lang="ko">${x[2]}</small></b></label>`).join('')}<div class="pref-actions"><button type="button" class="pref-save">保存我的关注 <span>관심 설정 저장</span></button><small>偏好保存在当前设备；接入会员账号后可跨设备同步。</small></div></div>`;host.querySelector('.pref-save').onclick=()=>{const v=[...host.querySelectorAll('input:checked')].map(x=>x.value);this.save(v);onSave&&onSave(v);const b=host.querySelector('.pref-save');b.firstChild.textContent='已保存 ';setTimeout(()=>b.firstChild.textContent='保存我的关注 ',1400)}}
+};
