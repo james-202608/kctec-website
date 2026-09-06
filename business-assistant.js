@@ -1,5 +1,6 @@
 (function () {
   const endpoint = window.KCTEC_AI_ENDPOINT || 'https://kctec-website.jameszh369.workers.dev/v1/chat';
+  const sessionToken = sessionStorage.getItem('kctec_session_token') || '';
   const tasks = {
     translate: '中韩商务翻译',
     meaning: '商务语境释义',
@@ -88,7 +89,10 @@
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          ...(sessionToken ? {'Authorization': `Bearer ${sessionToken}`} : {})
+        },
         credentials: 'include',
         body: JSON.stringify({
           task: mode,
@@ -101,6 +105,7 @@
       if (!response.ok) {
         const data = await response.json().catch(() => ({}));
         if (response.status === 401) {
+          sessionStorage.removeItem('kctec_session_token');
           result.innerHTML = '<b>请先登录会员账号</b><p>协会为每位客户建立独立身份和会话，登录后才能使用专属商务助理。</p><a href="member-login.html">使用邀请代码登录</a>';
           return;
         }
