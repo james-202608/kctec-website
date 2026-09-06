@@ -7,7 +7,7 @@
     {
       "binding": "DB",
       "database_name": "kctec-ai",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "f439c98b-caea-46f0-83ad-284c9ab1cc0c",
       "migrations_dir": "migrations"
     }
   ],
