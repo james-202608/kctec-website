@@ -25,6 +25,8 @@
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || '邀请验证失败');
+      if (!data.sessionToken) throw new Error('登录会话创建失败');
+      sessionStorage.setItem('kctec_session_token', data.sessionToken);
       history.replaceState({}, '', 'member-login.html');
       input.value = '';
       output.innerHTML = '登录成功。<a href="index.html">返回首页使用AI商务助手</a>';
