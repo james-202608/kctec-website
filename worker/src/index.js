@@ -86,7 +86,7 @@ async function redeemInvite(request, env, cors) {
   const headers = new Headers(cors);
   headers.set('Content-Type', 'application/json; charset=utf-8');
   headers.append('Set-Cookie', authCookie(sessionToken, env));
-  return new Response(JSON.stringify({ok: true}), {status: 200, headers});
+  return new Response(JSON.stringify({ok: true, sessionToken}), {status: 200, headers});
 }
 
 async function createClientInvite(request, env, cors) {
@@ -303,7 +303,9 @@ async function adminReport(request, env, cors) {
 }
 
 async function requireClient(request, env) {
-  const token = readCookie(request.headers.get('Cookie') || '', COOKIE_NAME);
+  const authorization = request.headers.get('Authorization') || '';
+  const bearerToken = authorization.startsWith('Bearer ') ? authorization.slice(7).trim() : '';
+  const token = bearerToken || readCookie(request.headers.get('Cookie') || '', COOKIE_NAME);
   if (!token) throw httpError(401, '请先登录');
   const client = await env.DB.prepare(
     `SELECT clients.id, clients.client_mark
