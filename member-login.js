@@ -2,7 +2,7 @@
   const form = document.getElementById('inviteForm');
   const input = form.elements.invite;
   const output = form.querySelector('output');
-  const endpoint = window.KCTEC_AI_ENDPOINT || '';
+  const endpoint = window.KCTEC_AI_ENDPOINT || 'https://kctec-website.jameszh369.workers.dev/v1/chat';
   const inviteFromUrl = new URLSearchParams(location.search).get('invite');
   if (inviteFromUrl) input.value = inviteFromUrl;
 
