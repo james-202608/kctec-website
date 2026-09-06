@@ -1,5 +1,5 @@
 (function () {
-  const endpoint = window.KCTEC_AI_ENDPOINT || '';
+  const endpoint = window.KCTEC_AI_ENDPOINT || 'https://kctec-website.jameszh369.workers.dev/v1/chat';
   const tasks = {
     translate: '中韩商务翻译',
     meaning: '商务语境释义',
