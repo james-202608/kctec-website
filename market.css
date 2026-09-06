@@ -3,18 +3,18 @@
 @media(max-width:600px){.market-nav .shell{height:66px;padding:0 16px}.market-brand small{display:none}.market-brand b{font-size:14px}.locale-switch a{padding:7px 9px}.market-hero{padding:48px 0 34px}.market-hero-grid{gap:26px}.market-hero h1{font-size:42px}.market-hero p{font-size:16px}.market-hero-photo{height:250px}.market-hero-photo strong{left:12px;bottom:12px}.market-dashboard{padding:42px 0}.map-panel,.industry-panel{padding:18px}.region-map{height:330px}.region b{font-size:13px}.industry-grid{grid-template-columns:1fr}.selection-summary{align-items:flex-start;flex-direction:column;gap:14px}.china-news-grid{grid-template-columns:1fr}.market-footer .shell{flex-direction:column}.news-actions button{flex:1}.market-heading h2{font-size:28px}}
 
 /* Province-based China selector */
-.region-map{position:relative;height:auto;min-height:330px;max-width:600px;display:flex;align-items:center;justify-content:center;margin:0 auto;background:linear-gradient(180deg,#f8fbfd,#eef4f8);border:1px solid #e0e8ee;border-radius:16px;overflow:hidden;padding:12px}
-.china-map-svg{display:block;width:100%;height:auto;max-height:420px;filter:drop-shadow(0 9px 15px rgba(17,47,80,.08))}
+.region-map{position:relative;height:auto;min-height:260px;max-width:480px;display:flex;align-items:center;justify-content:center;margin:0 auto;background:#f8fafb;border:1px solid #e0e8ee;border-radius:12px;overflow:hidden;padding:10px}
+.china-map-svg{display:block;width:100%;height:auto;max-height:330px;transform:none;filter:none}
 .china-province{fill:#bdcbd6;stroke:#fff;stroke-width:.34;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .18s ease,opacity .18s ease}
 .china-province:hover,.china-province.group-hover{fill:#7f9bb1}
 .china-province.selected{fill:#1763a8}
 .china-province:focus{outline:none;fill:#d0b46b}
 .map-loading{color:#718092;font-size:14px}
-.region-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.region-legend{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:14px}
 .region{position:static;width:auto;height:auto;clip-path:none!important;transform:none!important;display:block;text-align:left;border:1px solid #dce5ec;border-radius:9px;padding:10px 11px;background:#f8fafb;color:#17324d;box-shadow:none;cursor:pointer;transition:.18s}
 .region b{display:block;font-size:14px;line-height:1.3}.region small{display:block;margin-top:4px;color:#748495;font-size:11px;line-height:1.35}
 .region:hover,.region.selected{background:#1763a8;color:#fff;border-color:#1763a8;box-shadow:0 6px 15px rgba(23,99,168,.2)}
 .region.selected small,.region:hover small{color:#d8e8f5}
 .province-feedback{min-height:38px;margin:12px 2px 0;color:#65778a;font-size:12px;line-height:1.55}
-@media(max-width:600px){.region-map{min-height:250px;padding:6px}.region-legend{grid-template-columns:repeat(2,1fr)}.region{padding:9px}.china-map-svg{max-height:310px}}
+@media(max-width:800px){.region-legend{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.region-map{min-height:220px;max-width:390px;padding:6px}.region-legend{grid-template-columns:1fr}.region{padding:9px}.china-map-svg{max-height:270px}}
 .preference-explainer{margin:0 0 20px;padding:18px 20px;background:#fff8e7;border:1px solid #ead7a6}.preference-explainer>b{display:block;color:#8a6821;margin-bottom:12px}.preference-explainer>div{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.preference-explainer span{color:#5f6f7f;font-size:13px;line-height:1.55}.preference-explainer strong{display:block;color:#17324d;font-size:14px;margin-bottom:3px}.prefs-return{background:#edf4f9;border-bottom:1px solid #dbe5ed;padding:14px 0}.prefs-return .shell{display:flex;justify-content:space-between;align-items:center;gap:15px;color:#52677b;font-size:13px}.prefs-return button{border:1px solid #1763a8;background:#fff;color:#1763a8;padding:9px 13px;cursor:pointer;font-weight:700}.market-page [hidden]{display:none!important}@media(max-width:700px){.preference-explainer>div{grid-template-columns:1fr}.prefs-return .shell{align-items:flex-start;flex-direction:column}}
