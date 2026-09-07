@@ -43,11 +43,16 @@
   font-weight:700;
   line-height:1.45;
 }
-.front-story-copy h3,.front-story-copy h4{font-size:20px}
-.front-lead .front-story-copy h3,.front-lead .front-story-copy h4{font-size:26px}
-.korea-focus-copy h3,.korea-focus-copy h4{font-size:20px}
-.korea-focus-card.lead .korea-focus-copy h3,.korea-focus-card.lead .korea-focus-copy h4{font-size:27px}
-.media-card h3,.media-content .news-title-kr{font-size:20px;line-height:1.45}
+.front-story-copy h3{font-size:24px;order:1}
+.front-story-copy h4{font-size:17px;font-weight:500;color:#d7e4f0;order:2}
+.front-lead .front-story-copy h3{font-size:32px}
+.front-lead .front-story-copy h4{font-size:21px}
+.korea-focus-copy h3{font-size:24px}
+.korea-focus-copy h4{font-size:17px;font-weight:500;color:#60728a}
+.korea-focus-card.lead .korea-focus-copy h3{font-size:31px}
+.korea-focus-card.lead .korea-focus-copy h4{font-size:20px}
+.media-card h3{font-size:26px;line-height:1.4}
+.media-content .news-title-kr{font-size:18px;line-height:1.45;font-weight:500}
 .front-news-head h2>span{display:block;font-size:1em;line-height:inherit}
 @media(max-width:560px){
   .front-story-copy h3,.front-story-copy h4,
