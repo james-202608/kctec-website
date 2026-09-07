@@ -104,3 +104,42 @@
 .home-vibrant .site-header .brand strong{font-family:"Noto Sans SC",system-ui,sans-serif;font-size:20px;font-weight:800;letter-spacing:.02em}.home-vibrant .site-header .brand small{margin-top:3px;color:#667789;font-size:11px}.home-vibrant .nav-links a b{font-family:"Noto Sans SC",system-ui,sans-serif;font-size:13px}.home-vibrant .nav-links a small{display:block;margin-top:2px;font-size:10px;color:#78889a}.impact-hero{position:relative;isolation:isolate;overflow:hidden}.impact-hero:before{content:"";position:absolute;z-index:-1;left:27%;top:105px;width:300px;height:300px;background:url("./images/kctec-logo-official.jpg") center/contain no-repeat;filter:grayscale(1) contrast(1.35);opacity:.055;mix-blend-mode:multiply;pointer-events:none}.impact-copy{position:relative;z-index:2}.impact-copy h1{width:48%;margin:18px 0 12px;display:flex;flex-direction:column;align-items:flex-start}.impact-copy h1 .hero-cn{font:900 clamp(60px,7vw,104px)/.96 "Noto Sans SC",system-ui,sans-serif;letter-spacing:-.06em;color:#0b1d33}.impact-copy h1 .hero-cn-accent{margin-top:10px;font:800 clamp(42px,5vw,72px)/1.05 "Noto Sans SC",system-ui,sans-serif;color:#1556a3}.impact-copy h1 small{display:block;margin-top:18px;font:600 clamp(17px,1.6vw,23px)/1.45 "Noto Sans KR",sans-serif;color:#5d7690;letter-spacing:0}.hero-lead{max-width:620px;margin-top:20px;font-size:16px;line-height:1.8}.hero-tools b>span[lang="ko"]{display:block;margin-top:5px;font-size:11px;font-weight:500;color:#71869b}.hero-tools b{font-size:17px}.home-vibrant .site-header{background:rgba(255,255,255,.97)}
 @media(max-width:850px){.impact-hero:before{left:auto;right:-60px;top:80px;width:260px;height:260px}.impact-copy h1{width:100%}.impact-copy h1 .hero-cn{font-size:clamp(58px,12vw,82px)}.impact-copy h1 .hero-cn-accent{font-size:clamp(38px,8vw,58px)}}
 @media(max-width:560px){.home-vibrant .site-header .brand strong{font-size:16px}.impact-hero:before{right:-70px;top:105px;width:220px;height:220px;opacity:.045}.impact-copy h1{margin-top:14px}.impact-copy h1 .hero-cn{font-size:50px}.impact-copy h1 .hero-cn-accent{font-size:34px}.impact-copy h1 small{margin-top:13px;font-size:16px}.hero-lead{font-size:15px;line-height:1.7}}
+
+
+/* ===== Definitive bilingual title typography: keep each script visually uniform ===== */
+.media-content h3[lang="zh-CN"],
+.front-story-copy h3[lang="zh-CN"],
+.korea-focus-copy h3{
+  font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif!important;
+  font-size:clamp(24px,2.15vw,34px)!important;
+  font-weight:700!important;
+  font-style:normal!important;
+  font-synthesis:none;
+  line-height:1.38!important;
+  letter-spacing:0!important;
+  font-variant-numeric:proportional-nums;
+}
+.media-content .news-title-kr[lang="ko"],
+.front-story-copy h4[lang="ko"],
+.korea-focus-copy h4[lang="ko"]{
+  font-family:"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif!important;
+  font-size:clamp(16px,1.35vw,20px)!important;
+  font-weight:500!important;
+  font-style:normal!important;
+  font-synthesis:none;
+  line-height:1.45!important;
+  letter-spacing:0!important;
+}
+.media-content h3[lang="zh-CN"] *,
+.front-story-copy h3[lang="zh-CN"] *,
+.korea-focus-copy h3 *{
+  font:inherit!important;
+}
+@media(max-width:560px){
+  .media-content h3[lang="zh-CN"],
+  .front-story-copy h3[lang="zh-CN"],
+  .korea-focus-copy h3{font-size:24px!important}
+  .media-content .news-title-kr[lang="ko"],
+  .front-story-copy h4[lang="ko"],
+  .korea-focus-copy h4[lang="ko"]{font-size:16px!important}
+}
