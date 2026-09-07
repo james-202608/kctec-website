@@ -1,10 +1,11 @@
 (function(){
   const groups={
-    northeast:{ko:'동북',cn:'东北',provinces:['辽宁省','吉林省','黑龙江省','内蒙古自治区']},
-    north:{ko:'수도권',cn:'首都圈',provinces:['北京市','天津市','河北省','山东省','山西省','河南省']},
-    southeast:{ko:'주강삼각주',cn:'珠三角',provinces:['广东省','广西壮族自治区','福建省','海南省','香港特别行政区','澳门特别行政区','台湾省']},
-    southwest:{ko:'장강삼각주',cn:'长三角',provinces:['上海市','江苏省','浙江省','安徽省','江西省','湖北省']},
-    northwest:{ko:'중서부',cn:'中西部',provinces:['湖南省','重庆市','四川省','贵州省','云南省','西藏自治区','陕西省','甘肃省','青海省','宁夏回族自治区','新疆维吾尔自治区']}
+    northeast:{ko:'동북',cn:'东北',provinces:['辽宁省','吉林省','黑龙江省']},
+    capital:{ko:'수도권',cn:'首都圈',provinces:['北京市','天津市','河北省','山东省']},
+    yangtze:{ko:'장강삼각주',cn:'长三角',provinces:['上海市','江苏省','浙江省','安徽省','江西省']},
+    pearl:{ko:'주강삼각주',cn:'珠三角',provinces:['广东省','广西壮族自治区','福建省','海南省','香港特别行政区','澳门特别行政区','台湾省']},
+    central:{ko:'중부',cn:'中部',provinces:['河南省','湖北省','湖南省','山西省','内蒙古自治区']},
+    west:{ko:'서부',cn:'西部',provinces:['重庆市','四川省','贵州省','云南省','西藏自治区','陕西省','甘肃省','青海省','宁夏回族自治区','新疆维吾尔自治区']}
   };
   const provinceGroup={}; Object.entries(groups).forEach(([key,g])=>g.provinces.forEach(p=>provinceGroup[p]=key));
   function project(point){return[(point[0]-72)*9.4,(54-point[1])*9.4]}
