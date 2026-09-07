@@ -14,16 +14,16 @@ window.KCTEC_DATA={
     {id:203,channel:"china-tech",date:"2026-06-20",source:"央视新闻 / 中新网",title_cn:"中国实现高丰度硅-28材料自主量产",title_kr:"중국, 고순도 실리콘-28 소재 독자 양산",summary_cn:"关键材料丰度超过99.99%，为硅基量子芯片发展提供支撑。",points_cn:["国产材料生产线已进入稳定量产阶段","材料丰度超过99.99%","支撑硅基量子芯片产业发展"],points_kr:["고순도 실리콘-28 소재 독자 양산","소재 순도 99.99% 이상 달성","실리콘 기반 양자칩 산업 발전 지원"],image:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Silicon_Photonics_300mm_wafer.JPG/960px-Silicon_Photonics_300mm_wafer.JPG",url:"https://www.chinanews.com.cn/gn/2026/06-20/10644064.shtml"},
     {id:301,channel:"korea-tech",date:"2026-09-02",source:"亚洲日报",period:"本周",title_cn:"韩国物理AI与代理AI论坛聚焦制造业优势",title_kr:"한국 피지컬 AI·에이전트 AI 포럼, 제조업 강점 조명",summary_cn:"产业专家提出将半导体、汽车等高端制造现场数据转化为韩国AI竞争力。",points_cn:["论坛聚焦物理AI与代理AI产业化","半导体、汽车制造现场数据被视为核心优势","推动AI能力与韩国高端制造体系深度结合"],points_kr:["피지컬 AI와 에이전트 AI 산업화에 집중","반도체·자동차 제조 현장 데이터를 핵심 경쟁력으로 평가","AI 역량과 한국 첨단 제조 시스템의 융합 추진"],image:"./news-week-korea-ai.png",url:"https://www.ajudaily.com/view/20260902215270734"},
     {id:302,channel:"korea-tech",date:"2026-06-30",source:"Korea.net",title_cn:"韩国启动半导体、物理AI与数据中心超级项目",title_kr:"한국, 반도체·피지컬 AI·데이터센터 메가프로젝트 추진",summary_cn:"韩国计划以非首都圈为先进产业基地，推进三大高新产业主轴。",points_cn:["三大高新产业项目同步推进","强化非首都圈先进产业基地建设","半导体、物理AI与数据中心形成主轴"],points_kr:["3대 첨단산업 프로젝트 동시 추진","비수도권 첨단산업 거점 강화","반도체·피지컬 AI·데이터센터를 핵심 축으로 육성"],image:"./news-korea-ai.jpg",url:"https://chinese.korea.net/Government/Current-Affairs/National-Affairs/view?affairId=2798&articleId=295056&subId=175&viewId=78031"},
-    {id:303,channel:"korea-tech",date:"2026-06-29",source:"韩联社",title_cn:"韩国公布三大超级项目产业战略",title_kr:"한국, 3대 메가프로젝트 산업전략 발표",summary_cn:"半导体、物理人工智能与AI数据中心被列为核心政策任务。",points_cn:["公布三大超级项目产业战略","物理AI被列入国家核心政策任务","以政策协同推动产业投资与落地"],points_kr:["3대 메가프로젝트 산업전략 발표","피지컬 AI를 국가 핵심 정책과제로 선정","정책 연계를 통해 산업 투자와 실행 촉진"],image:"./pdfimg-013.jpg",url:"https://cn.yna.co.kr/view/ACK20260629002200881"}
+    {id:303,channel:"korea-tech",date:"2026-06-29",source:"韩联社",title_cn:"韩国公布三大超级项目产业战略",title_kr:"한국, 3대 메가프로젝트 산업전략 발표",summary_cn:"半导体、物理人工智能与AI数据中心被列为核心政策任务。",points_cn:["公布三大超级项目产业战略","物理AI被列入国家核心政策任务","以政策协同推动产业投资与落地"],points_kr:["3대 메가프로젝트 산업전략 발표","피지컬 AI를 국가 핵심 정책과제로 선정","정책 연계를 통해 산업 투자와 실행 촉진"],image:null,visual_label:"3대 메가프로젝트",url:"https://cn.yna.co.kr/view/ACK20260629002200881"}
   ],
   enterpriseHistory:[
     {year:"2024",type:"business",title_cn:"交流中心创立于首尔",title_kr:"서울에서 교류센터 설립",caption:"由韩中两国工商界人士共同发起，建立长期经贸合作平台。",image:"./pdfimg-008.jpg"},
     {year:"2024",type:"business",title_cn:"企业访问与项目交流",title_kr:"기업 방문 및 프로젝트 교류",caption:"围绕产业需求开展面对面交流与合作研讨。",image:"./pdfimg-009.jpg"},
     {year:"2025",type:"business",title_cn:"合作项目签约",title_kr:"협력 프로젝트 체결",caption:"推动双方企业从交流走向具体合作。",image:"./pdfimg-012.jpg"},
     {year:"2025",type:"culture",title_cn:"韩中文化交流活动",title_kr:"한중 문화교류 행사",caption:"以文化活动拓展民间沟通与理解。",image:"./pdfimg-017.jpg"},
-    {year:"2025",type:"football",title_cn:"足球交流与媒体访谈",title_kr:"축구 교류와 언론 인터뷰",caption:"以足球连接青年、城市与友谊。",image:"./pdfimg-016.jpg"},
-    {year:"2026",type:"football",title_cn:"青少年足球交流",title_kr:"청소년 축구 교류",caption:"推动训练、赛事与青少年互访项目。",image:"./pdfimg-024.jpg"},
-    {year:"2026",type:"football",title_cn:"绿茵场上的韩中友谊",title_kr:"그라운드 위의 한중 우정",caption:"经贸增强效益，足球增强友谊。",image:"./pdfimg-025.jpg"}
+    {year:"2025",type:"football",title_cn:"足球交流与媒体访谈",title_kr:"축구 교류와 언론 인터뷰",caption:"以足球连接青年、城市与友谊。",caption_kr:"축구를 통해 청년과 도시, 우정을 연결합니다.",image:"./pdfimg-016.jpg"},
+    {year:"2026",type:"football",title_cn:"青少年足球交流",title_kr:"청소년 축구 교류",caption:"推动训练、赛事与青少年互访项目。",caption_kr:"훈련과 경기, 청소년 상호 방문을 추진합니다.",image:"./pdfimg-024.jpg"},
+    {year:"2026",type:"football",title_cn:"绿茵场上的韩中友谊",title_kr:"그라운드 위의 한중 우정",caption:"经贸增强效益，足球增强友谊。",caption_kr:"경제무역은 효익을 높이고, 축구는 우정을 돈독히 합니다.",image:"./pdfimg-025.jpg"}
   ],
   todayHistory:[
     {year:"1992",date:"8月24日",title_cn:"中韩正式建交",title_kr:"한중 수교",description:"中华人民共和国与大韩民国正式建立外交关系，开启两国关系新篇章。"},
