@@ -1,13 +1,11 @@
 (function () {
   const endpoint = window.KCTEC_AI_ENDPOINT || 'https://kctec-website.jameszh369.workers.dev/v1/chat';
   const sessionToken = sessionStorage.getItem('kctec_session_token') || '';
+  const ko = document.documentElement.lang === 'ko';
   const tasks = {
     translate: '中韩商务翻译',
-    meaning: '商务语境释义',
-    reply: '帮我回复对方',
-    email: '撰写商务邮件',
-    negotiate: '准备谈判问题',
-    minutes: '整理会议纪要'
+    reply: '回复／商务邮件',
+    negotiate: '会议准备／纪要',
   };
 
   document.body.insertAdjacentHTML('beforeend', `
@@ -16,14 +14,11 @@
       <button class="ai-close" type="button" aria-label="关闭">×</button>
       <span>KCTEC AI BUSINESS DESK</span>
       <h2>韩中 AI 商务助手</h2>
-      <p>选择任务并输入内容。正式服务将采用 DeepSeek V4，聊天是否保存由您决定。</p>
+      <p>翻译提供直译；存在语境差异时另附商务释义。也可起草回复、邮件、会议议程或纪要。</p>
       <div class="ai-tools">
         <button type="button" data-prompt="translate">中韩商务翻译<small>한중 비즈니스 번역</small></button>
-        <button type="button" data-prompt="meaning">商务语境释义<small>비즈니스 의미 해석</small></button>
-        <button type="button" data-prompt="reply">帮我回复对方<small>답변 작성</small></button>
-        <button type="button" data-prompt="email">撰写商务邮件<small>비즈니스 이메일</small></button>
-        <button type="button" data-prompt="negotiate">准备谈判问题<small>협상 준비</small></button>
-        <button type="button" data-prompt="minutes">整理会议纪要<small>회의록 정리</small></button>
+        <button type="button" data-prompt="reply">回复／商务邮件<small>답변·이메일 작성</small></button>
+        <button type="button" data-prompt="negotiate">会议准备／纪要<small>회의 준비·회의록</small></button>
       </div>
       <label class="ai-input-label">需要 AI 协助的内容
         <textarea placeholder="粘贴对方的话、邮件或会议内容……"></textarea>
@@ -39,6 +34,13 @@
       <div class="ai-result" role="status" aria-live="polite"></div>
     </aside>`);
 
+  if (ko) {
+    document.querySelector('.ai-launcher').innerHTML='AI 비즈니스 도우미<small>AI 商务助手</small>';
+    document.querySelector('.ai-desk h2').textContent='한중 AI 비즈니스 도우미';
+    document.querySelector('.ai-desk > p').textContent='번역과 문맥 해석, 답변·이메일 작성, 회의 준비·회의록을 지원합니다.';
+    const labels={translate:'한중 비즈니스 번역',reply:'답변·비즈니스 이메일',negotiate:'회의 준비·회의록'};
+    document.querySelectorAll('[data-prompt]').forEach(b=>b.textContent=labels[b.dataset.prompt]);
+  }
   const desk = document.querySelector('.ai-desk');
   const launcher = document.querySelector('.ai-launcher');
   const textarea = desk.querySelector('textarea');
@@ -96,7 +98,7 @@
         credentials: 'include',
         body: JSON.stringify({
           task: mode,
-          message,
+          message: ({translate:'请做中韩双向商务翻译。先提供忠实直译；仅当存在语境差异或言外之意时，另列商务语境释义，说明依据和不确定性，不臆测对方意图。',reply:'请根据用户要求起草回复或商务邮件，保留事实，不编造承诺。',negotiate:'请根据输入区分会议准备与会议纪要：准备时列目标、议程和问题；纪要时整理讨论、决定、负责人和待办。不编造未提供的决定。'}[mode] || '') + (ko?' 请用韩文说明，翻译正文使用目标语言。':'') + '\n用户内容：\n' + message,
           sessionId: currentSessionId,
           saveHistory: saveHistory.checked,
           allowStaffFollowup: staffFollowup.checked
