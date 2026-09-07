@@ -57,3 +57,37 @@
     font-size:21px;
   }
 }
+
+/* ===== 2026-09 Chinese-first bilingual hierarchy ===== */
+.front-news-head h2>span,
+.stage-head h2>span,
+.action-top h2>span,
+.page-hero h1>span,
+.media-hero h1>span{
+  display:block;
+  margin-top:.35em;
+  color:#5c7692;
+  font-family:"Malgun Gothic","Noto Sans SC",sans-serif;
+  font-size:.42em;
+  font-weight:600;
+  line-height:1.35;
+}
+.action-top h2>span,.page-hero h1>span,.media-hero h1>span{color:#9fb8d1}
+.front-story-copy h3,.korea-focus-copy h3,.media-card h3{font-size:22px;color:inherit}
+.front-story-copy h4,.korea-focus-copy h4,.media-content .news-title-kr{
+  margin-top:6px;
+  color:#56718c;
+  font-size:16px;
+  font-weight:600;
+  line-height:1.45;
+}
+.front-lead .front-story-copy h3{font-size:30px}
+.front-lead .front-story-copy h4{font-size:19px}
+.korea-focus-card.lead .korea-focus-copy h3{font-size:28px}
+.korea-focus-card.lead .korea-focus-copy h4{font-size:18px}
+@media(max-width:560px){
+  .front-story-copy h3,.korea-focus-copy h3,.media-card h3,
+  .front-lead .front-story-copy h3,.korea-focus-card.lead .korea-focus-copy h3{font-size:22px}
+  .front-story-copy h4,.korea-focus-copy h4,.media-content .news-title-kr,
+  .front-lead .front-story-copy h4,.korea-focus-card.lead .korea-focus-copy h4{font-size:15px}
+}

@@ -13,3 +13,12 @@
   .front-story-copy h3,.front-story-copy h4,
   .front-lead .front-story-copy h3,.front-lead .front-story-copy h4{font-size:21px}
 }
+
+/* Chinese edition: Chinese headline first and larger; Korean translation below. */
+.front-news-head h2>span{display:block;margin-top:.35em;font-size:.42em!important;line-height:1.35;color:#5c7692}
+.front-story-copy h3{font-size:22px}
+.front-story-copy h4{font-size:16px;color:#56718c}
+.front-lead .front-story-copy h3{font-size:30px}
+.front-lead .front-story-copy h4{font-size:19px}
+.media-card h3{font-size:22px}
+.media-content .news-title-kr{font-size:16px;color:#56718c}
